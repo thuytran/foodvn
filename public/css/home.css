@@ -225,19 +225,78 @@ p a{
 #footer div.home div div.connect ul li a.twitter{
 	background: url(http://localhost/foodvn/public/image/sprite-icons.gif) no-repeat 0 -335px;
 }
-#form_dk
-{
-	float: inherit;
-	margin-left: 200px;
-	font-size: 16px;
-	line-height: 20px;
-	
+
+
+
+#content div div#account {
+	color: #5F5D5E;
+	margin: 60px auto 0;
+	padding: 10px 0 0 ;
+	width: 420px;
 }
-#form_dk span{
-	font-size: 20px;
-	font-style: italic;
-	font-weight: bold;
+
+#content div div#account div {
+	padding: 0 0 10px;
+	width: auto;
 }
-#form_dk h4{
-	
+
+#content div div#account div form {
+	background: url(http://localhost/foodvn/public/image/bg-form.gif) repeat-y;
+	margin: 0;
+	padding-bottom: 15px;
 }
+
+#content div div#account div form input {
+	color: #5F5D5E;
+	margin: 0 0 0 10px;
+}
+
+#content div div#account div form span {
+	color: #84284D;
+	display: block;
+	padding: 15px 10px 10px 15px;
+}
+
+#content div div#account div form input#username,
+#content div div#account div form input#fullname,
+#content div div#account div form input#dob,
+#content div div#account div form input#regions,
+#content div div#account div form input#email,
+#content div div#account div form input#password,
+#content div div#account div form input#password_2{
+	border: 1px solid #e0e0e0;
+	height: 25px;
+	width: 310px;
+}
+#content div div#account div form input#rememberme {
+	display: inline-block;
+	vertical-align: sub;
+}
+#content div div#account div form table {
+	margin-left: 10px;
+}
+#content div div#account div form table tr td {
+	padding: 5px 0;
+    text-align: right;
+}
+
+#content div div#account div form table tr td.rememberme {
+	padding: 0;
+	text-align: left;
+}
+
+#content div div#account div form table tr td label input#rememberme {
+	vertical-align: sub;
+}
+
+#content div div#account div form input.submitbtn {
+	background: url(http://localhost/foodvn/public/image/sprite-buttons.gif) no-repeat 0 -376px;
+	color: #84284D;
+	border: 0;
+	height: 25px;
+	font-size: 11px;
+	margin-left: 300px;
+	margin-top: 10px;
+	width: 90px;
+}
+

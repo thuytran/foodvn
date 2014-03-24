@@ -9,12 +9,12 @@
 			<div>
 				<div>
 					<div id="logo">
-						<a href="localhost/foodvn/index.php"><img src="http://localhost/foodvn/public/image/logo.ico"/></a>
+						<a href="http://localhost/foodvn/index.php"><img src="http://localhost/foodvn/public/image/logo.ico"/></a>
 					</div>
 					<div>
 						<div>
-							<a href="index.php/user/sign_up">My account</a>
-							<a href="">Sign in</a>
+							<a href="sign_up">My account</a>
+							<a href="sign_in">Sign in</a>
 						</div>
 						<form action="#">
 							<input type="text" id="search" maxlength="40" />
@@ -24,7 +24,7 @@
 				</div>
 				<ul>
 					<li class="current">
-						<a href="">Home</a>
+						<a href="http://localhost/foodvn/index.php">Home</a>
 					</li>
 					<li>
 						<a href="">About us</a>
@@ -48,53 +48,47 @@
 				<div>
 					<div id="account">
 						<div>
-							<form method="post" action="http://localhost/foodvn/index.php/user/register" id="form_dk">
-								<br />
-								<br />
+							<form method="post" action="http://localhost/foodvn/index.php/user/register">
 								<span>Đăng ký tài khoản mới</span>
 								<h4> <?php echo $result;?> </h4>
 								<table>
 									<tr>
-										<td> Họ và tên</td>
-										<td> <input type="text" name="fullname" /> </td>
+										<td><label for="fullname">Họ và tên</label></td>
+										
+										<td> <input type="text" name="fullname" id="fullname" /> </td>
 									</tr>
 									<br />
 									<tr>
-										<td>Ngày tháng năm sinh</td>
-										<td><input type="date" name="dob" /></td>
+										<td><label for="dob">Ngày sinh</label></td>
+										<td><input type="date" name="dob" id="dob"/></td>
 									</tr>
 									<br />
 									<tr>
-										<td>Quê quán</td>
-										<td><input type="text" name="regions" /></td>
+										<td><label for="regions">Quê quán</label></td>
+										<td><input type="text" name="regions" id="regions" /></td>
 									</tr>
 									<br />
 									<tr>
-										<td>Email</td>
-										<td><input type="text" name="email" /></td>
+										<td><label for="email">Email</label></td>
+										<td><input type="text" name="email" id="email" /></td>
 									</tr>
 									
 									<tr>
-										<td>Tên đăng nhập</td>
-										<td><input type="text" name="username"/></td>
+										<td><label for="username">Tên Đăng Nhập</label></td>
+										<td><input type="text" name="username" id="username"/></td>
 									</tr>
 									
 									<tr>
-										<td>Mật khẩu</td>
-										<td><input type="password" name="password" placeholder="8 kí tự trở lên" /></td>
+										<td><label for="password">Mật khẩu</label></td>
+										<td><input type="password" name="password" id="password" placeholder="8 kí tự trở lên" /></td>
 									</tr>
 							
 									<tr>
-										<td>Nhập lại mật khẩu</td>
-										<td><input type="password" name="password_2" />  </td>
+										<td><label for="password_2">Nhập lại mật khẩu</label></td>
+										<td><input type="password" name="password_2" id="password_2"/>  </td>
 									</tr>
-								
-									<tr>
-										<td>Đồng ý đăng ký</td>
-										<td><input type="submit" value="Đăng ký" /> </td>
-									</tr>
-								
 								</table>
+								<input type="submit" value="Đăng ký" class="submitbtn"/> 
 							</form>
 						</div>
 					</div>

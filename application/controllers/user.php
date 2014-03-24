@@ -75,6 +75,12 @@ class User extends CI_Controller {
 			}
 		
 	}
+	
+	public function sign_in()
+	{
+		$result = array ('result' => "");
+		$this -> load -> view("sign_in",$result);
+	}
 }
 
 /* End of file welcome.php */

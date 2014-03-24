@@ -13,8 +13,8 @@
 					</div>
 					<div>
 						<div>
-							<a href="index.php/user/sign_up">My account</a>
-							<a href="index.php/user/sign_in">Sign in</a>
+							<a href="sign_up">My account</a>
+							<a href="sign_in">Sign in</a>
 						</div>
 						<form action="#">
 							<input type="text" id="search" maxlength="40" />
@@ -42,51 +42,33 @@
 						<a href="">Blogs</a>
 					</li>
 				</ul>
-				<div id="section">
-					<ul>
-						<li>
-							<a href="">Breakfast</a>
-						</li>
-						<li>
-							<a href="">Appetizers</a>
-						</li>
-						<li>
-							<a href="">Main Course</a>
-						</li>
-						<li>
-							<a href="">Dessert</a>
-						</li>
-						<li>
-							<a href="">Drinks</a>
-						</li>
-						<li>
-							<a href="">Cakes</a>
-						</li>
-					</ul>
-					<a href=""><img src="http://localhost/foodvn/public/image/img_large.jpg" /></a>
 				</div>
 			</div>
-		</div>
-		<div id="content">
-			<div class="home">
-				<div class="aside">
-					<h1>Welcome to our site</h1>
-					<p>index</p>
-				</div>
-			</div>
-		</div>
-		<div id="footer">
-			<div class="home">
+			<div id="content">
+		<div>
+			<div id="account">
 				<div>
-					<div class="connect">
-						<span>Follow Us</span>
-						<ul>
-						<li><a href="http://facebook.com/" target="_blank" class="facebook">Facebook</a></li>
-						<li><a href="http://twitter.com/" target="_blank" class="twitter">Twitter</a></li>
-						</ul>
-					</div>
+					<form action="http://localhost/foodvn/index.php/user/sign-in">
+						<span>SIGN-IN</span>
+						<table>
+							<tr>
+								<td><label for="username">Username</label></td>
+								<td><input type="text" id="username" /></td>
+							</tr>
+							<tr>
+								<td><label for="password">Password</label></td>
+								<td><input type="text" id="password" /></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td class="rememberme"><label for="rememberme"><input type="checkbox" id="rememberme" /> Remember me on this computer</label></td>
+							</tr>
+						</table>
+						<input type="submit" value="Đăng nhập" class="submitbtn" />
+					</form>
 				</div>
 			</div>
 		</div>
-	</body>
-</html>
+	</div>
+			</body>
+			</html>
