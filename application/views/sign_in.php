@@ -48,16 +48,19 @@
 		<div>
 			<div id="account">
 				<div>
-					<form action="http://localhost/foodvn/index.php/user/sign-in">
+					<form action="http://localhost/foodvn/index.php/user/signin">
 						<span>SIGN-IN</span>
 						<table>
 							<tr>
+									<b><?php echo $result;?></b>
+							</tr>
+							<tr>
 								<td><label for="username">Username</label></td>
-								<td><input type="text" id="username" /></td>
+								<td><input type="text" id="username" name="username"/></td>
 							</tr>
 							<tr>
 								<td><label for="password">Password</label></td>
-								<td><input type="text" id="password" /></td>
+								<td><input type="password" id="password" name="password"/></td>
 							</tr>
 							<tr>
 								<td></td>

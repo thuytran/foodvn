@@ -81,6 +81,44 @@ class User extends CI_Controller {
 		$result = array ('result' => "");
 		$this -> load -> view("sign_in",$result);
 	}
+	
+	public function signin()
+	{
+		$username = $_GET['username'];
+		$password = $_GET['password'];
+		$user = $this -> userModel -> signin($username,$password);
+		if($user!=null)
+			{
+				$this -> session -> set_userdata('session_user',$user);
+				redirect('/user/homepage/','refresh');
+			}
+		else
+			{
+				$result = array('result' => "Thông tin đăng nhập không đúng, đăng nhập lại!");
+				$this -> load -> view("sign_in",$result );
+			}
+	}
+	
+	public function homepage(){
+		$iduser = $this -> get_current_user_id();
+		$result=$this -> userModel -> select($iduser);
+		$user = $result -> result_array();
+		if(count($user)==1){
+			$data = array('user'=>$user[0]);
+			$this -> load -> view('user_homepage',$data);
+		}
+	}
+	
+	public function logout($value = ''){
+		$this->session->unset_userdata('session_user');
+		redirect("http://localhost/foodvn/index.php","refresh");
+	}
+	
+	public function userpage()
+	{
+		$this -> load -> view('userpage');
+	}
+	
 }
 
 /* End of file welcome.php */
