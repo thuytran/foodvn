@@ -23,23 +23,23 @@
 					</div>
 				</div>
 				<ul>
-					<li class="current">
+					<li>
 						<a href="http://localhost/foodvn/index.php">Home</a>
 					</li>
 					<li>
-						<a href="">About us</a>
+						<a href="http://localhost/foodvn/index.php/welcome/about">About us</a>
 					</li>
 					<li>
-						<a href="">Recipes</a>
+						<a href="http://localhost/foodvn/index.php/welcome/recipes">Recipes</a>
 					</li>
 					<li>
-						<a href="">Restaurants</a>
+						<a href="http://localhost/foodvn/index.php/welcome/restaurants">Restaurants</a>
 					</li>
 					<li>
-						<a href="">Collections</a>
+						<a href="http://localhost/foodvn/index.php/welcome/collections">Collections</a>
 					</li>
 					<li>
-						<a href="">Blogs</a>
+						<a href="http://localhost/foodvn/index.php/welcome/blogs">Blogs</a>
 					</li>
 				</ul>
 				</div>
@@ -49,22 +49,22 @@
 					<div id="account">
 						<div>
 							<form method="post" action="http://localhost/foodvn/index.php/user/register">
-								<span>Đăng ký tài khoản mới</span>
+								<span>Form register</span>
 								<h4> <?php echo $result;?> </h4>
 								<table>
 									<tr>
-										<td><label for="fullname">Họ và tên</label></td>
+										<td><label for="fullname">Full name</label></td>
 										
 										<td> <input type="text" name="fullname" id="fullname" /> </td>
 									</tr>
 									<br />
 									<tr>
-										<td><label for="dob">Ngày sinh</label></td>
+										<td><label for="dob">Birth day</label></td>
 										<td><input type="date" name="dob" id="dob"/></td>
 									</tr>
 									<br />
 									<tr>
-										<td><label for="regions">Quê quán</label></td>
+										<td><label for="regions">Region</label></td>
 										<td><input type="text" name="regions" id="regions" /></td>
 									</tr>
 									<br />
@@ -74,22 +74,27 @@
 									</tr>
 									
 									<tr>
-										<td><label for="username">Tên Đăng Nhập</label></td>
+										<td><label for="username">User name</label></td>
 										<td><input type="text" name="username" id="username"/></td>
 									</tr>
 									
 									<tr>
-										<td><label for="password">Mật khẩu</label></td>
-										<td><input type="password" name="password" id="password" placeholder="8 kí tự trở lên" /></td>
+										<td><label for="password">Password</label></td>
+										<td><input type="password" name="password" id="password" placeholder="over 8 characters" /></td>
 									</tr>
 							
 									<tr>
-										<td><label for="password_2">Nhập lại mật khẩu</label></td>
+										<td><label for="password_2">Repeat password </label></td>
 										<td><input type="password" name="password_2" id="password_2"/>  </td>
 									</tr>
+									<tr>
+										<td></td>
+										<td><input type="submit" value="Submit" id="submitbtn"/> </td>
+									</tr>
 								</table>
-								<input type="submit" value="Đăng ký" class="submitbtn"/> 
+								
 							</form>
+							
 						</div>
 					</div>
 				</div>

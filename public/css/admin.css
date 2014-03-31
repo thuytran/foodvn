@@ -1,0 +1,17 @@
+
+body{
+	font-family: "Arial Black";
+	font-size: 16px;
+	height: auto;
+	background: url(http://localhost/foodvn/public/image/bg_admin.jpg) no-repeat center ;
+}
+#login{
+	margin-left: 550px;
+}
+#btnlogin
+{
+	height: 27px;
+	width: 80px;
+	background: #BBA3FF;
+	border: double;
+}

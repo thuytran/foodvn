@@ -25,4 +25,11 @@ class UserModel extends CI_Model{
 		$select = $this->db->query("select * from user where iduser=?",array($iduser));
 		return $select;
 	}
+	
+	public function update($iduser,$user)
+	{
+		$this->db->where('iduser',$iduser);
+		$result = $this->db->update("user",$user);
+		return $result;
+	}
 }

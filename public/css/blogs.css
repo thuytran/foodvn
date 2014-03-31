@@ -1,0 +1,101 @@
+body {
+	background: #FFD5CA;
+	color: #78394e;
+	font-family: Arial;
+	font-size: 12px;
+	margin: 0;
+	min-width: 960px;
+	padding: 0;
+	width: 100%;
+}
+#header{
+	background: #f5f5f5 url(http://localhost/foodvn/public/image/bg-body.gif) repeat-x center top;
+}
+#header div{
+	margin: 0 auto;
+	width: 960px;
+}
+#header div div{
+	height: 110px;
+	overflow: hidden;
+	position: relative;
+}
+#header div div #logo{
+	float: left;
+	width: 331px;
+}
+
+
+#content {
+	height: auto;
+	margin-left: 50px;
+	margin-right: 50px;
+}
+
+#footer {
+	background: #703f54;
+	width: 100%;
+}
+#footer div.home{
+	background: url(http://localhost/foodvn/public/image/bg-footer.gif) repeat-x top left;
+	height: 100px;
+	padding: 0;
+	width: auto;
+}
+#footer div.home div{
+	margin: 0 auto;
+	padding: 0;
+	overflow: hidden;
+	width: 960px;
+}
+#footer div.home div div.connect{
+	margin-top: 10px;
+	width: auto;
+}
+#footer div.home div div.connect span{
+	color: #84284D;
+	display: block;
+	font-size: 18px;
+	margin: 0 0 5px;
+}
+#footer div.home div div.connect ul{
+	list-style: none;
+	margin: 0 0 0 20px;
+	padding: 0;
+	width: 500px;
+}
+#footer div.home div div.connect ul li{
+	float: left;
+	padding: 5px 0;
+	width: 200px;
+}
+#footer div.home div div.connect ul li a{
+	color: #84284D;
+	display: block;
+	height: 22px;
+	line-height: 18px;
+	text-decoration: none;
+	text-indent: 30px;
+}
+#footer div.home div div.connect ul li a.facebook{
+	background: url(http://localhost/foodvn/public/image/sprite-icons.gif) no-repeat 0 -30px;
+}
+#footer div.home div div.connect ul li a.twitter{
+	background: url(http://localhost/foodvn/public/image/sprite-icons.gif) no-repeat 0 -335px;
+}
+
+#backbtn
+{
+	background: url(http://localhost/foodvn/public/image/sprite-buttons.gif) no-repeat 0 -376px;
+	color: #84284D;
+	border: 0;
+	height: 27px;
+	font-size: 11px;
+	margin-top: 10px;
+	width: 90px;
+}
+
+ul li{
+	list-style: none;
+	
+}

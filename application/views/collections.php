@@ -9,13 +9,12 @@
 			<div>
 				<div>
 					<div id="logo">
-						<a href="http://localhost/foodvn/index.php/user/homepage"><img src="http://localhost/foodvn/public/image/logo.ico"/></a>
+						<a href="http://localhost/foodvn/index.php"><img src="http://localhost/foodvn/public/image/logo.ico"/></a>
 					</div>
 					<div>
 						<div>
-							 <a>Hi <b> <?php echo $user["username"]; ?></b></a>
-							 <a href="http://localhost/foodvn/index.php/user/userpage">Profile</a>
-							 <a href="http://localhost/foodvn/index.php/user/logout">Log out</a>
+							<a href="http://localhost/foodvn/index.php/user/sign_up">My account</a>
+							<a href="http://localhost/foodvn/index.php/user/sign_in">Sign in</a>
 						</div>
 						<form action="#">
 							<input type="text" id="search" maxlength="40" />
@@ -24,8 +23,8 @@
 					</div>
 				</div>
 				<ul>
-					<li class="current">
-						<a href="http://localhost/foodvn/index.php/user/homepage">Home</a>
+					<li>
+						<a href="http://localhost/foodvn/index.php">Home</a>
 					</li>
 					<li>
 						<a href="http://localhost/foodvn/index.php/welcome/about">About us</a>
@@ -36,7 +35,7 @@
 					<li>
 						<a href="http://localhost/foodvn/index.php/welcome/restaurants">Restaurants</a>
 					</li>
-					<li>
+					<li class="current">
 						<a href="http://localhost/foodvn/index.php/welcome/collections">Collections</a>
 					</li>
 					<li>
@@ -71,7 +70,8 @@
 		<div id="content">
 			<div class="home">
 				<div class="aside">
-	
+					<h1>Welcome to our site</h1>
+					<p>index</p>
 				</div>
 			</div>
 		</div>

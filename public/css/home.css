@@ -180,7 +180,7 @@ p a{
 }
 #footer div.home{
 	background: url(http://localhost/foodvn/public/image/bg-footer.gif) repeat-x top left;
-	height: 336px;
+	height: 100px;
 	padding: 0;
 	width: auto;
 }
@@ -289,16 +289,38 @@ p a{
 	vertical-align: sub;
 }
 
-#content div div#account div form input.submitbtn {
+#submitbtn
+{
 	background: url(http://localhost/foodvn/public/image/sprite-buttons.gif) no-repeat 0 -376px;
 	color: #84284D;
 	border: 0;
 	height: 25px;
 	font-size: 11px;
-	margin-left: 300px;
 	margin-top: 10px;
 	width: 90px;
+	
 }
 
+#change_info
+{
+	border: double #FFD5CA;
+	float: right;
+}
 
-
+ul{
+	list-style: none;
+	margin-left: 150px;
+	margin-top: 80px;
+	overflow: hidden;
+}
+ul li{
+	float: left;
+	height: 50px;
+	line-height: 50px;
+	width: 150px;
+}
+ul li a{
+	text-decoration: none;
+	font-size: 16px;
+	display: block;
+}

@@ -23,23 +23,23 @@
 					</div>
 				</div>
 				<ul>
-					<li class="current">
+					<li>
 						<a href="http://localhost/foodvn/index.php">Home</a>
 					</li>
 					<li>
-						<a href="">About us</a>
+						<a href="http://localhost/foodvn/index.php/welcome/about">About us</a>
 					</li>
 					<li>
-						<a href="">Recipes</a>
+						<a href="http://localhost/foodvn/index.php/welcome/recipes">Recipes</a>
 					</li>
 					<li>
-						<a href="">Restaurants</a>
+						<a href="http://localhost/foodvn/index.php/welcome/restaurants">Restaurants</a>
 					</li>
 					<li>
-						<a href="">Collections</a>
+						<a href="http://localhost/foodvn/index.php/welcome/collections">Collections</a>
 					</li>
 					<li>
-						<a href="">Blogs</a>
+						<a href="http://localhost/foodvn/index.php/welcome/blogs">Blogs</a>
 					</li>
 				</ul>
 				</div>
@@ -66,8 +66,11 @@
 								<td></td>
 								<td class="rememberme"><label for="rememberme"><input type="checkbox" id="rememberme" /> Remember me on this computer</label></td>
 							</tr>
+							<tr>
+										<td></td>
+										<td><input type="submit" value="Log in" id="submitbtn"/> </td>
+									</tr>
 						</table>
-						<input type="submit" value="Đăng nhập" class="submitbtn" />
 					</form>
 				</div>
 			</div>

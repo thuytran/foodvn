@@ -116,7 +116,40 @@ class User extends CI_Controller {
 	
 	public function userpage()
 	{
-		$this -> load -> view('userpage');
+		$iduser = $this -> get_current_user_id();
+		$result=$this -> userModel -> select($iduser);
+		$user = $result -> result_array();
+		if(count($user)==1){
+			$data = array('user' => $user[0]);
+		$this -> load -> view('userpage',$data);
+		}
+		else{
+			redirect('userpage','refresh');
+		}
+	}
+
+	public function update()
+	{
+		$iduser = $this -> get_current_user_id();
+		$fullname2 = $_POST['fullname2'];
+		$dob2 = $_POST['dob2'];
+		$regions2 = $_POST['regions2'];
+		$password_old = $_POST['password_old'];
+		$password_new = $_POST['password_new'];
+		$query = $this->db->query("select * from user");
+		foreach($query->result_array()as $row)
+		{
+			$pw_o = $row['password'];
+		}
+		if(($iduser!=null)&&($fullname2!=null)&&($dob2!=null)&&($password_old!=null)&&($password_new!=null)&&($password_old==$pw_o)&&(strlen($password_new)>=8))
+		{
+			$user = array('fullname'=>$fullname2,'dob'=>$dob2,'regions'=>$regions2,'password'=>$password_new);
+			$update = $this -> userModel -> update($iduser,$user);
+			$this->userpage();
+		}
+		else{
+			$this->no_permission();
+		}
 	}
 	
 }
