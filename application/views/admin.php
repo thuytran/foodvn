@@ -16,10 +16,10 @@
 			<form id="login" method="post" name="login" action="http://localhost/foodvn/index.php/admin/login">
 				 <input type="button" value="login" id="btnlogin" onclick="s_login();" />
 				 <p>
-				 <input type="text" placeholder="admin" style="visibility: hidden" name="admin" />
+				 <input type="text" name="admin" placeholder="admin" style="visibility: hidden"  />
 				 </p>
 				 <p>
-				 <input type="password" placeholder="password" style="visibility: hidden" name="password" />
+				 <input type="password" name="password" placeholder="password" style="visibility: hidden"  />
 				 </p>
 				 <p>
 				 <input type="submit" name="submit" style="visibility: hidden" value="submit" id="btnsubmit" />

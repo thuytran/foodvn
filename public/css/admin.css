@@ -10,8 +10,17 @@ body{
 }
 #btnlogin
 {
-	height: 27px;
-	width: 80px;
 	background: #BBA3FF;
 	border: double;
+}
+
+#btnadd
+{
+	background: #BBA3FF;
+	border: double;
+}
+
+#upload_file
+{
+	margin-left: 550px;
 }

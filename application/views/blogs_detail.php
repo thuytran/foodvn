@@ -11,10 +11,22 @@
 					</div>
 		</div>
 		
-		<div id="content">
+		<div id="content_b">
 		<ul>
-			<li>
-				<?php echo $blogs['title']; ?>
+			<li id="title">
+				<b><?php echo $blogs['title']; ?></b>
+			</li>
+			<li id="summary">
+				<i><?php echo $blogs['summary']; ?></i>
+			</li>
+			<li id="file_name">
+				<img src="http://localhost/foodvn/upload/<?php echo $blogs['file_name'];?>" width="300px" height ="300px" />
+			</li>
+			<li id="content">
+				<?php echo $blogs['content']; ?>
+			</li>
+			<li id="signature">
+				<i><?php echo $blogs['signature'];?></i>
 			</li>
 			<li>
 				<form><input type="button" id="backbtn" value="Click to go back" onClick="history.go(-1);return true;"></form>
@@ -28,7 +40,7 @@
 						<div class="connect">
 							<span>Follow Us</span>
 							<ul>
-								<li><a href="http://facebook.com/" target="_blank" class="facebook">Facebook</a></li>
+								<li><a href="https://www.facebook.com/foodvnam" target="_blank" class="facebook">Facebook</a></li>
 								<li><a href="http://twitter.com/" target="_blank" class="twitter">Twitter</a></li>
 							</ul>
 					</div>

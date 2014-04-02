@@ -28,7 +28,7 @@
 						<div class="connect">
 							<span>Follow Us</span>
 							<ul>
-								<li><a href="http://facebook.com/" target="_blank" class="facebook">Facebook</a></li>
+								<li><a href="https://www.facebook.com/foodvnam" target="_blank" class="facebook">Facebook</a></li>
 								<li><a href="http://twitter.com/" target="_blank" class="twitter">Twitter</a></li>
 							</ul>
 					</div>

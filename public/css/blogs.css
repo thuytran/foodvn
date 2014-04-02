@@ -2,7 +2,7 @@ body {
 	background: #FFD5CA;
 	color: #78394e;
 	font-family: Arial;
-	font-size: 12px;
+	font-size: 14px;
 	margin: 0;
 	min-width: 960px;
 	padding: 0;
@@ -26,10 +26,32 @@ body {
 }
 
 
-#content {
+#content_b {
 	height: auto;
 	margin-left: 50px;
 	margin-right: 50px;
+}
+#title{
+	text-transform: uppercase;
+	font-size: 18px;
+	text-align: center;
+}
+#signature
+{
+	float: right;
+}
+#summary
+{
+	text-align: center;
+	font-size: 13px;
+}
+#file_name
+{
+	text-align: center;
+}
+#content
+{
+	
 }
 
 #footer {

@@ -18,9 +18,10 @@
 					$item = $blogs[$i];
 					?>
 					<h2> <?php echo $item['title']; ?> </h2>
+					<img src="http://localhost/foodvn/upload/<?php echo $item['file_name'];?>" width="60px" height="60px" />
 					<h5><i> <?php echo $item['summary'];?> </i></h5>
 					
-					<a href="http://localhost/foodvn/index.php/welcome/detail"> Continue... </a>
+					<a href="http://localhost/foodvn/index.php/welcome/detail/?id=<?php echo $item["id"] ?>"> Continue... </a>
 					<?php } ?>
 			</li>
 			<li>
@@ -35,7 +36,7 @@
 						<div class="connect">
 							<span>Follow Us</span>
 							<ul>
-								<li><a href="http://facebook.com/" target="_blank" class="facebook">Facebook</a></li>
+								<li><a href="https://www.facebook.com/foodvnam" target="_blank" class="facebook">Facebook</a></li>
 								<li><a href="http://twitter.com/" target="_blank" class="twitter">Twitter</a></li>
 							</ul>
 					</div>
