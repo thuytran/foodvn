@@ -1,8 +1,8 @@
 body {
-	background: #6a3e4f;
-	color: #78394e;
-	font-family: Arial;
-	font-size: 12px;
+	background-image: url(http://localhost/foodvn/public/image/bg.png);
+	color: #D75726;
+	font-family: "Times New Roman", Times, serif;
+	font-size: 16px;
 	margin: 0;
 	min-width: 960px;
 	padding: 0;
@@ -17,9 +17,7 @@ img{
 p a{
 	color: #df4b9f;
 }
-#header{
-	background: #f5f5f5 url(http://localhost/foodvn/public/image/bg-body.gif) repeat-x center top;
-}
+
 #header div{
 	margin: 0 auto;
 	width: 960px;
@@ -31,7 +29,9 @@ p a{
 }
 #header div div #logo{
 	float: left;
-	width: 331px;
+	margin-left: 100px;
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
 #header div div div{
 	float: right;
@@ -99,73 +99,24 @@ p a{
 	width: 160px;
 }
 #header div ul li a{
-	background: url(http://localhost/foodvn/public/image/sprite-buttons.gif) no-repeat 0 -205px;
-	color: #5b5c5e;
+	background: url(http://localhost/foodvn/public/image/bg.png) ;
 	display: block;
-	font-size: 14px;
+	font-family: "Comic Sans MS";
+	color: #C988C9;
+	font-size: 16px;
 	text-align: center;
 	text-decoration: none;
-	text-shadow: 1px 1px 0 #e8edf1;
-	text-transform: capitalize;
+	text-transform: uppercase;
 }
 #header div ul li a:hover, #header ul li.current a{
-	color: #b13c68;
-	text-shadow: 1px 1px 0 #ebb8c7;
-}
-#header div ul li.current a {
-	background: url(http://localhost/foodvn/public/image/sprite-buttons.gif) no-repeat 0 -97px;
-}
-#header div div#section, #header div div.section {
-	background: #aa6581;
-	height: 360px;	
-	padding: 10px;
-	width: 940px;
-}
-#header div div.section {
-	height: 190px;
+	color: #D75726;
+	
 }
 
-#header div div#section ul {
-	float: left;
-	list-style: none;
-	margin: 0;
-	padding: 0;
-}
-#header div div#section ul li {
-	background: none;
-	float: none;
-    height: 38px;
-    line-height: 34px;
-	padding: 1px 0 1px;
-    width: 230px;
-}
-#header div div#section ul li a {
-	background: url(http://localhost/foodvn/public/image/sprite-buttons.gif) no-repeat 0 -157px;
-	color: #f5ffff;
-	display: block;
-	height: 38px;
-	line-height: 34px;
-	font-size: 12px;
-    font-weight: bold;
-	padding: 1px 0 1px;
-	text-align: center;
-	text-shadow: 1px 1px 0 #ad657d, -1px -1px 0 #ad657d, -1px 1px 0 #ad657d, 1px -1px 0 #ad657d;
-	text-transform: lowercase;
-}
-#header div div#section ul li a:hover, #header div div#section ul li.selected a {
-	color: #7c0d37;
-	text-shadow: 1px 1px 0 #f7cade, -1px -1px 0 #f7cade, -1px 1px 0 #f7cade, 1px -1px 0 #f7cade;
-}
-#header div div#section ul li.selected a {
-	background: url(http://localhost/foodvn/public/image/sprite-buttons.gif) no-repeat 0 0;
-}
-#header div div#section img {
-	float: right;
-}
 #content {
-	background: #f5f5f5;
+	/*background: #f5f5f5;
 	height: auto;
-	width: 100%;
+	width: 100%;*/
 }
 
 #content div.home {
@@ -303,7 +254,7 @@ p a{
 
 #change_info
 {
-	border: double #FFD5CA;
+	border: dashed #EBF0F0;
 	float: right;
 }
 
@@ -324,3 +275,172 @@ ul li a{
 	font-size: 16px;
 	display: block;
 }
+
+
+
+/*slide anh*/
+
+#slider-wrapper {
+    background:url(http://localhost/foodvn/public/image/slider.png) no-repeat;
+    width:998px;
+    height:392px;
+    margin:0 auto;
+    padding-top:74px;
+    margin-top:50px;
+}
+
+#slider {
+	position:relative;
+    width:618px;
+    height:246px;
+    margin-left:190px;
+	background:url(hppt://localhost/foodvn/public/image/loading.gif) no-repeat 50% 50%;
+}
+#slider img {
+	position:absolute;
+	top:0px;
+	left:0px;
+	display:none;
+}
+#slider a {
+	border:0;
+	display:block;
+}
+
+.nivo-controlNav {
+	position:absolute;
+	left:260px;
+	bottom:-42px;
+}
+.nivo-controlNav a {
+	display:block;
+	width:22px;
+	height:22px;
+	background:url(http://localhost/foodvn/public/image/bullets.png) no-repeat;
+	text-indent:-9999px;
+	border:0;
+	margin-right:3px;
+	float:left;
+}
+.nivo-controlNav a.active {
+	background-position:0 -22px;
+}
+
+.nivo-directionNav a {
+	display:block;
+	width:30px;
+	height:30px;
+	background:url(http://localhost/foodvn/public/image/arrows.png) no-repeat;
+	text-indent:-9999px;
+	border:0;
+}
+a.nivo-nextNav {
+	background-position:-30px 0;
+	right:15px;
+}
+a.nivo-prevNav {
+	left:15px;
+}
+
+.nivo-caption {
+    text-shadow:none;
+    font-family: Helvetica, Arial, sans-serif;
+}
+.nivo-caption a { 
+    color:#efe9d1;
+    text-decoration:underline;
+}
+.clear {
+	clear:both;
+}
+
+
+.nivoSlider {
+	position:relative;
+}
+.nivoSlider img {
+	position:absolute;
+	top:0px;
+	left:0px;
+}
+/* If an image is wrapped in a link */
+.nivoSlider a.nivo-imageLink {
+	position:absolute;
+	top:0px;
+	left:0px;
+	width:100%;
+	height:100%;
+	border:0;
+	padding:0;
+	margin:0;
+	z-index:60;
+	display:none;
+}
+/* The slices in the Slider */
+.nivo-slice {
+	display:block;
+	position:absolute;
+	z-index:50;
+	height:100%;
+}
+/* Caption styles */
+.nivo-caption {
+	position:absolute;
+	left:0px;
+	bottom:0px;
+	background:#000;
+	color:#fff;
+	opacity:0.8; /* Overridden by captionOpacity setting */
+	width:100%;
+	z-index:89;
+}
+.nivo-caption p {
+	padding:5px;
+	margin:0;
+}
+.nivo-caption a {
+	display:inline !important;
+}
+.nivo-html-caption {
+    display:none;
+}
+/* Direction nav styles (e.g. Next & Prev) */
+.nivo-directionNav a {
+	position:absolute;
+	top:45%;
+	z-index:99;
+	cursor:pointer;
+}
+.nivo-prevNav {
+	left:0px;
+}
+.nivo-nextNav {
+	right:0px;
+}
+/* Control nav styles (e.g. 1,2,3...) */
+.nivo-controlNav a {
+	position:relative;
+	z-index:99;
+	cursor:pointer;
+}
+.nivo-controlNav a.active {
+	font-weight:bold;
+}
+
+
+#result_upload{
+	color: #FF2020;
+}
+
+#list_article{
+	background: #F0F0F0;
+	border: groove;
+	margin-left: 100px;
+	width: 250px;
+	height: auto;
+	text-align: center;
+	margin-bottom: 100px;
+	position: relative;
+}
+
+

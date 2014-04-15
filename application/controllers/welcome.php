@@ -27,7 +27,9 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('homepage');
+		$this->load->model("ArticleModel");
+		$data['article'] = $this -> articleModel -> get_article();
+		$this->load->view("homepage",$data);
 	}
 	
 	public function admin()
@@ -53,12 +55,7 @@ class Welcome extends CI_Controller {
 		$this->load->view('collections');
 	}
 	public function blogs()
-	{
-		// $result=$this -> articleModel -> blogs();
-		// $blogs = $result -> result_array();
-		// $data = array('blogs' => $blogs[0]);
-		// $this -> load -> view('blogs',$data);	
-		
+	{		
 		$this->load->model("ArticleModel");
 		$data['blogs'] = $this -> articleModel -> blogs();
 		$this->load->view("blogs",$data);		

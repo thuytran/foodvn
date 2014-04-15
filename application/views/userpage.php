@@ -9,7 +9,7 @@
 			<div>
 				<div>
 					<div id="logo">
-						<a href="http://localhost/foodvn/index.php/user/homepage"><img src="http://localhost/foodvn/public/image/logo.ico"/></a>
+						<a href="http://localhost/foodvn/index.php/user/homepage"><img src="http://localhost/foodvn/public/image/logo.png"/></a>
 					</div>
 					<div>
 					<div>
@@ -63,24 +63,27 @@
 					</form> 
 				</div>
 				<div>
-					<form id="upload" method="post" action="">
+					<form id="upload" method="post" action="http://localhost/foodvn/index.php/user/upload_new_recipe" enctype="multipart/form-data">
 						<table>
 							
+								<p id="result_upload"><h2><b><i><?php echo $result;?></i></b></h2></p>
 								<p> <b> upload new recipe </b> </p>
 								<p>Choose type</p>
-								<select name="choose">
-									<option value="breakfast">Breakfast</option>
-									<option value="appetizer">Appetizer</option>
-									<option value="main_course">Main course</option>
-									<option value="dessert">Dessert</option>
-									<option value="drink">Drink</option>
-									<option value="cake">Cake</option>
+								
+								<select name="id_category" id="id_category">
+									<option value="1">Breakfast</option>
+									<option value="2">Appetizer</option>
+									<option value="3">Main course</option>
+									<option value="4">Dessert</option>
+									<option value="5">Drink</option>
+									<option value="6">Cake</option>
 								</select>
-								<p> <input type="text" name="title" placeholder="article title " /> </p>
-								<p> <input type="file" value="upload image" name="image" /> </p>
-								<p><textarea name="ingredients">Ingredients...</textarea></p>
-								<textarea name="instructions">Instruction...</textarea>
-								<input type="submit" value="post" />
+								<p> <input type="text" name="title_article" id="title_article" placeholder="article title " /> </p>
+								<p> <input type="file" name="file_name" id="file_name"/> </p>
+								<p><textarea name="ingredients" id="ingredients" rows="15" cols="30">Ingredients...</textarea></p>
+								<p><textarea name="step1_prepare" id="step1_prepare" rows="12" cols="30">Prepare: </textarea></p>
+								<p><textarea name="step2_making" id="step2_making" rows="12" cols="30">Making: </textarea></p>				
+								<input type="submit" name="submit" value="post" id="submit"/>
 						</table>
 					</form>
 				</div>

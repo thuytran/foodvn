@@ -4,6 +4,7 @@ class User extends CI_Controller {
 	function __construct() {
 		parent::__construct();
 		$this -> load -> model('userModel', '', TRUE);
+		$this -> load -> model('articleModel', '', TRUE);
 		$this -> load -> library('session');
 		$this -> load -> helper('form');
 		$this -> load -> helper('url');
@@ -120,13 +121,14 @@ class User extends CI_Controller {
 		$result=$this -> userModel -> select($iduser);
 		$user = $result -> result_array();
 		if(count($user)==1){
-			$data = array('user' => $user[0]);
+		$data = array('user' => $user[0],'result' => "");
 		$this -> load -> view('userpage',$data);
 		}
 		else{
 			redirect('userpage','refresh');
 		}
 	}
+
 
 	public function update()
 	{
@@ -152,6 +154,63 @@ class User extends CI_Controller {
 		}
 	}
 	
+	public function upload_new_recipe(){
+		$status = "";
+		$msg = "";
+		$id_category = $this->input->post("id_category");
+		$title_article = $this->input->post("title_article");
+		$ingredients = $this->input->post("ingredients");
+		$step1_prepare = $this->input->post("step1_prepare");
+		$step2_making = $this->input->post("step2_making");
+		$id_user = $this -> get_current_user_id();
+		$username = $this -> get_current_username();
+		if($title_article==null||$ingredients==null||$step1_prepare==null||$step2_making==null){
+				$status = "error";
+				$msg = "try again!";
+		}
+		
+		if($status!="error")
+			{
+				$config['upload_path'] = '.\upload';
+				$config['allowed_types'] = 'png|jpg|gif';
+				$config['max_size'] = 1024 * 8;
+				$config['encrypt_name'] = TRUE;
+				$this->load->library("upload",$config);
+				if(!$this->upload->do_upload("file_name"))
+					{
+						$status = "error";
+						$msg = $this->upload->display_errors('<p>','</p>');
+						echo $msg;
+					}
+				else
+					{
+						$this->load->model("ArticleModel");
+						$data = $this->upload->data();
+						$info = array("id_user"=>$id_user,
+						"username" => $username,
+						"id_category" => $_POST['id_category'],
+						"title_article" => $_POST['title_article'],
+						"ingredients" => $_POST['ingredients'],
+						"step1_prepare" => $_POST['step1_prepare'],
+						"step2_making" => $_POST['step2_making'],
+						"file_name" => $data['file_name']);
+						$fid = $this->ArticleModel->upload_new_recipe($info);
+						$iduser = $this -> get_current_user_id();
+						$result=$this -> userModel -> select($iduser);
+						$user = $result -> result_array();
+						if($fid){
+							$data = array('user'=>$user[0],'result' => "Uploaded!");
+							$this -> load -> view("userpage",$data );
+						}
+						else{
+							$data = array('user'=>$user[0],'result' => "Error, try again!");
+							$this -> load -> view("userpage",$data );
+						}
+						
+					}
+					}
+		
+		}
 }
 
 /* End of file welcome.php */

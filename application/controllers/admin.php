@@ -93,13 +93,6 @@ class Admin extends CI_Controller {
 		}
 		echo json_encode(array('status'=>$status,'msg' => $msg));
 
-			}
-
-			public function files(){
-				$this->load->model("ArticleModel");
-				$data['files'] = $this->ArticleModel->get_all_files();
-				$this->load->view("files",$data);
-			}
-			
+			}			
 }
 		

@@ -1,6 +1,7 @@
 <?php
 class ArticleModel extends CI_Model{
-	protected $_table = "blogs";
+	protected $_table1 = "blogs";
+	protected $_table2="article";
 	public function __construct(){
 		parent::__construct();
 		$this->load->database();
@@ -19,17 +20,19 @@ class ArticleModel extends CI_Model{
 	}
 	
 	public function insert($data){
-		$this->db->insert($this->_table,$data);
+		$this->db->insert($this->_table1,$data);
 		return $this->db->insert_id();
 	}
 	
-	public function get_all_files($file_id=""){
-		if($file_id !=""){
-			$this->db->where("id",$file_id);
-		}
-		return $this->db->get($this->_table)->result_array();
+	public function upload_new_recipe($data){
+		$this->db->insert($this->_table2,$data);
+		return $this->db->insert_id();
+	}
+	
+	public function get_article()
+	{
+		$select_article = $this->db->query("select * from article ORDER BY id_article DESC");
+		return $select_article->result_array();
 	}
 }
-
-
-?> 
+?>
