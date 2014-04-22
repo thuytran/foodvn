@@ -1,5 +1,6 @@
 body {
 	background-image: url(http://localhost/foodvn/public/image/bg.png);
+	background-repeat: repeat-y;
 	color: #D75726;
 	font-family: "Times New Roman", Times, serif;
 	font-size: 16px;
@@ -7,6 +8,7 @@ body {
 	min-width: 960px;
 	padding: 0;
 	width: 100%;
+	
 }
 a{
 	outline: none;
@@ -37,6 +39,7 @@ p a{
 	float: right;
 	height: 110px;
 	width: auto;
+	margin-top: 50px;
 }
 #header div div div div{
 	display: block;
@@ -96,14 +99,13 @@ p a{
 	float: left;
 	height: 50px;
 	line-height: 50px;
-	width: 160px;
+	width: 190px;
 }
 #header div ul li a{
-	background: url(http://localhost/foodvn/public/image/bg.png) ;
 	display: block;
 	font-family: "Comic Sans MS";
-	color: #C988C9;
-	font-size: 16px;
+	color: #9B5577;
+	font-size: 18px;
 	text-align: center;
 	text-decoration: none;
 	text-transform: uppercase;
@@ -126,11 +128,11 @@ p a{
 	width: 960px;
 }
 #footer {
-	background: #703f54;
+	
 	width: 100%;
 }
 #footer div.home{
-	background: url(http://localhost/foodvn/public/image/bg-footer.gif) repeat-x top left;
+	
 	height: 100px;
 	padding: 0;
 	width: auto;
@@ -256,16 +258,17 @@ p a{
 {
 	border: dashed #EBF0F0;
 	float: right;
+	margin-top: 100px;
 }
 
 ul{
 	list-style: none;
-	margin-left: 150px;
-	margin-top: 80px;
+	margin-right: 50px;
+	margin-top: 400px;
 	overflow: hidden;
 }
 ul li{
-	float: left;
+	float: right;
 	height: 50px;
 	line-height: 50px;
 	width: 150px;
@@ -432,15 +435,81 @@ a.nivo-prevNav {
 	color: #FF2020;
 }
 
-#list_article{
-	background: #F0F0F0;
-	border: groove;
-	margin-left: 100px;
-	width: 250px;
-	height: auto;
-	text-align: center;
-	margin-bottom: 100px;
-	position: relative;
+
+
+#url_user{
+	text-decoration: blink;
+	color: #A26EA2;
+	font-family: "Comic Sans MS";
 }
 
 
+#list_article{
+	border: none;
+	width: 250px;
+	height: auto;
+	text-align: center;
+	position: relative;
+	margin-left: 45px;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+.list_article_breakfast
+	{
+		float: left;
+		background: url(http://localhost/foodvn/public/image/bg_breakfast.png); 
+	}
+
+.list_article_appetizer
+{
+	float: left;
+	background: url(http://localhost/foodvn/public/image/bg_appetizer.png); 
+}
+
+.list_article_main
+{
+	float: left;
+	background: url(http://localhost/foodvn/public/image/bg_main.png);
+}
+
+.list_article_dessert
+{
+	float: left;
+	background: url(http://localhost/foodvn/public/image/bg_dessert.png);
+}
+
+.list_article_drink
+{
+	float: left;
+	background: url(http://localhost/foodvn/public/image/bg_drink.png);
+}
+
+.list_article_cake
+{
+	float: left;
+	background: url(http://localhost/foodvn/public/image/bg_cake.png);
+}
+
+#list_article a{
+	text-decoration: none;
+	outline: none;
+	color: #9B5577;
+	font-family: "Comic Sans MS";
+}
+
+#upload{
+    float: left;
+    margin-top: 100px;
+    margin-left: 100px;
+    margin-bottom: 100px;
+}
+
+
+
+#tb_profile_user{
+	border: double;
+	margin-left: 200px;
+	margin-top: 100px;
+	margin-bottom: 150px;
+}

@@ -1,5 +1,6 @@
 body {
 	background-image: url(http://localhost/foodvn/public/image/bg.png);
+	background-size: cover;
 	color: #D75726;
 	font-family: "Times New Roman", Times, serif;
 	font-size: 16px;
@@ -96,14 +97,14 @@ p a{
 	float: left;
 	height: 50px;
 	line-height: 50px;
-	width: 160px;
+	width: 180px;
 }
 #header div ul li a{
-	background: url(http://localhost/foodvn/public/image/bg.png) ;
 	display: block;
 	font-family: "Comic Sans MS";
 	text-align: center;
-	color: #C988C9;
+	color: #9B5577;
+	font-size: 18px;
 	text-decoration: none;
 	text-transform: uppercase;
 }
@@ -278,24 +279,26 @@ a.nivo-prevNav {
 }
 #summary
 {
+	margin-top: 40px;
 	text-align: center;
-	font-size: 13px;
+	font-size: 14px;
 }
 #file_name
 {
+	margin-top: 40px;
 	text-align: center;
 }
 #content
 {
-	
+	margin-top: 40px;
 }
 
 #footer {
-	background: #703f54;
+	
 	width: 100%;
 }
 #footer div.home{
-	background: url(http://localhost/foodvn/public/image/bg-footer.gif) repeat-x top left;
+	
 	height: 100px;
 	padding: 0;
 	width: auto;
@@ -349,7 +352,7 @@ a.nivo-prevNav {
 	border: 0;
 	height: 27px;
 	font-size: 11px;
-	margin-top: 10px;
+	margin-top: 20px;
 	width: 90px;
 }
 
@@ -357,3 +360,15 @@ ul li{
 	list-style: none;
 	
 }
+
+#detail_recipes {
+	height: auto;
+	margin-top: 60px;
+	margin-left: 150px;
+	margin-right: 50px;
+}
+#detail_recipes h3{
+ 	font-family: "Comic Sans MS";
+ 	color: #9B5577;
+ }
+

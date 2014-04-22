@@ -9,13 +9,9 @@
 			<div>
 				<div>
 					<div id="logo">
-						<a href="http://localhost/foodvn/index.php"><img src="http://localhost/foodvn/public/image/logo.png"/></a>
+						<img src="http://localhost/foodvn/public/image/logo.png"/>
 					</div>
 					<div>
-						<div>
-							<a href="index.php/user/sign_up">My account</a>
-							<a href="index.php/user/sign_in">Sign in</a>
-						</div>
 						<form action="#">
 							<input type="text" id="search" maxlength="40" />
 							<input type="submit" value="" id="searchbtn" />
@@ -35,10 +31,7 @@
 					<li>
 						<a href="http://localhost/foodvn/index.php/welcome/restaurants">Restaurants</a>
 					</li>
-					<li>
-						<a href="http://localhost/foodvn/index.php/welcome/collections">Collections</a>
-					</li>
-					<li class="current">
+						<li class="current">
 						<a href="http://localhost/foodvn/index.php/welcome/blogs">Blogs</a>
 					</li>
 				</ul>

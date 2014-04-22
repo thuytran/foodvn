@@ -19,13 +19,13 @@
 					</div>
 				</div>
 				<ul>
-					<li class="current">
+					<li>
 						<a href="http://localhost/foodvn/index.php">Home</a>
 					</li>
 					<li>
 						<a href="http://localhost/foodvn/index.php/welcome/about">About us</a>
 					</li>
-					<li>
+					<li  class="current">
 						<a href="http://localhost/foodvn/index.php/welcome/recipes">Recipes</a>
 					</li>
 					<li>
@@ -38,22 +38,22 @@
 		</div>	
 		</div>
 		
-		<div id="content_b">
+		<div id="detail_recipes">
 		<ul>
 			<li id="title">
-				<b><?php echo $blogs['title']; ?></b>
-			</li>
-			<li id="summary">
-				<i><?php echo nl2br($blogs['summary']); ?></i>
+				<b><?php echo $article['title_article']; ?></b> 
 			</li>
 			<li id="file_name">
-				<img src="http://localhost/foodvn/upload/<?php echo $blogs['file_name'];?>" width="300px" height ="300px" />
+				<img src="http://localhost/foodvn/upload/<?php echo $article['file_name'];?>" width="300px" height ="320px" />
 			</li>
-			<li id="content">
-				<?php echo nl2br($blogs['content']); ?>
+			<li id="ingredients">
+				<h3>Ingredients: </h3><i><?php echo nl2br($article['ingredients']); ?></i>
 			</li>
-			<li id="signature">
-				<i><?php echo $blogs['signature'];?></i>
+			<li id="step1">
+				<h3>1. Prepare: </h3><?php echo nl2br($article['step1_prepare']);?>
+			</li>
+			<li id="step2">
+				<h3>2. Making: </h3><?php echo nl2br($article['step2_making']); ?>
 			</li>
 			<li>
 				<form><input type="button" id="backbtn" value="Click to go back" onClick="history.go(-1);return true;"></form>

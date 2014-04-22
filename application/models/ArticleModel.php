@@ -34,5 +34,11 @@ class ArticleModel extends CI_Model{
 		$select_article = $this->db->query("select * from article ORDER BY id_article DESC");
 		return $select_article->result_array();
 	}
+	
+	public function get_one_article($id_article)
+	{
+		$result = $this->db->query("select * from article where id_article=?",array($id_article));
+		return $result;
+	}
 }
 ?>

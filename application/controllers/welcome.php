@@ -50,10 +50,6 @@ class Welcome extends CI_Controller {
 	{
 		$this->load->view('restaurants');
 	}
-	public function collections()
-	{
-		$this->load->view('collections');
-	}
 	public function blogs()
 	{		
 		$this->load->model("ArticleModel");
@@ -68,7 +64,6 @@ class Welcome extends CI_Controller {
 		$data["blogs"] = count($blogs) > 0 ? $blogs[0] : null;
 		$this->load->view('blogs_detail',$data);
 	}
-	
 }
 
 /* End of file welcome.php */

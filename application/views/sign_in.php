@@ -9,7 +9,7 @@
 			<div>
 				<div>
 					<div id="logo">
-						<a href="http://localhost/foodvn/index.php"><img src="http://localhost/foodvn/public/image/logo.ico"/></a>
+						<a href="http://localhost/foodvn/index.php"><img src="http://localhost/foodvn/public/image/logo.png"/></a>
 					</div>
 					<div>
 						<div>
@@ -34,9 +34,6 @@
 					</li>
 					<li>
 						<a href="http://localhost/foodvn/index.php/welcome/restaurants">Restaurants</a>
-					</li>
-					<li>
-						<a href="http://localhost/foodvn/index.php/welcome/collections">Collections</a>
 					</li>
 					<li>
 						<a href="http://localhost/foodvn/index.php/welcome/blogs">Blogs</a>

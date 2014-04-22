@@ -17,18 +17,17 @@
 							 <a href="http://localhost/foodvn/index.php/user/userpage">Profile</a>
 							 <a href="http://localhost/foodvn/index.php/user/logout">Log out</a>
 					</div>
-					<form action="#">
-							<input type="text" id="search" maxlength="40" />
-							<input type="submit" value="" id="searchbtn" />
-						</form>
 					</div>
+				</div>
+			</div>
 		</div>
-		</div>
-	</div>
+		
+		
 		<div id="content">
-			<div class="home">
-				<div class="aside">
-					<form id="user_info" action="http://localhost/foodvn/index.php/user/update" method="post">
+		
+				
+				<div id="user_info">
+					<form action="http://localhost/foodvn/index.php/user/update" method="post">
 						<table id="change_info">
 							<tr> <td><b>Change your profile</b></td> </tr>
 							<input name="iduser" type="hidden" value="<?php echo $user["iduser"]; ?>" />
@@ -62,12 +61,16 @@
 						</table>
 					</form> 
 				</div>
-				<div>
-					<form id="upload" method="post" action="http://localhost/foodvn/index.php/user/upload_new_recipe" enctype="multipart/form-data">
+				
+				
+					
+				
+					<div id="upload">
+					<form  method="post" action="http://localhost/foodvn/index.php/user/upload_new_recipe" enctype="multipart/form-data">
 						<table>
 							
 								<p id="result_upload"><h2><b><i><?php echo $result;?></i></b></h2></p>
-								<p> <b> upload new recipe </b> </p>
+								<p> <b> Upload new recipe </b> </p>
 								<p>Choose type</p>
 								
 								<select name="id_category" id="id_category">
@@ -86,7 +89,12 @@
 								<input type="submit" name="submit" value="post" id="submit"/>
 						</table>
 					</form>
-				</div>
+					</div>
+					
+			</div>
+				
+				
+				
 				<div>
 					<ul>
 					<li>
@@ -105,8 +113,9 @@
 						<a href=""> Activity </a>
 					</li>
 					</ul>
-				</div>
 			</div>
+			
+			
 		</div>
 		<div id="footer">
 			<div class="home">

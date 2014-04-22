@@ -9,7 +9,7 @@
 			<div>
 				<div>
 					<div id="logo">
-						<a href="http://localhost/foodvn/index.php/user/homepage"><img src="http://localhost/foodvn/public/image/logo.ico"/></a>
+						<a href="http://localhost/foodvn/index.php/user/homepage"><img src="http://localhost/foodvn/public/image/logo.png"/></a>
 					</div>
 					<div>
 						<div>
@@ -35,9 +35,6 @@
 					</li>
 					<li>
 						<a href="http://localhost/foodvn/index.php/welcome/restaurants">Restaurants</a>
-					</li>
-					<li>
-						<a href="http://localhost/foodvn/index.php/welcome/collections">Collections</a>
 					</li>
 					<li>
 						<a href="http://localhost/foodvn/index.php/welcome/blogs">Blogs</a>
@@ -86,13 +83,177 @@
         $('#slider').nivoSlider();
     });
     </script>
+    
+    <div id="fb-root"></div>
+		<script>
+			( function(d, s, id) {
+					var js, fjs = d.getElementsByTagName(s)[0];
+					if (d.getElementById(id))
+						return;
+					js = d.createElement(s);
+					js.id = id;
+					js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1";
+					fjs.parentNode.insertBefore(js, fjs);
+				}(document, 'script', 'facebook-jssdk'));
+		</script>
+    
+    
 		<div id="content">
-			<div class="home">
-				<div class="aside">
-	
-				</div>
-			</div>
+			<?php for($i=0;$i<count($article);$i++){
+							$item = $article[$i];
+				if (($item["id_category"]) == 1) {  ?> 
+			<table id="list_article" class="list_article_breakfast">
+				<tr>
+					<td>
+					<h5>Posted by: <b> <a href="http://localhost/foodvn/index.php/user/check_user/?iduser=<?php echo $item["iduser"] ?>" id="url_user"><?php echo $item['username']; ?></a>    </b></h5> 
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<h4> <a href="http://localhost/foodvn/index.php/user/detail_article/?id_article=<?php echo $item["id_article"] ?>" > <?php echo $item['title_article']; ?> </a>  </h4>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<img src="http://localhost/foodvn/upload/<?php echo $item['file_name'];?>" width="140px" height="160px" />
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-width="60" data-type="button"></div>
+					</td>
+				</tr>
+				<?php } ?> 
+			</table>
+			<?php if(($item["id_category"])==2){ ?>
+				<table id="list_article" class="list_article_appetizer">
+				<tr>
+					<td>
+					<h5>Posted by: <b> <a href="http://localhost/foodvn/index.php/user/check_user/?iduser=<?php echo $item["iduser"] ?>" id="url_user"><?php echo $item['username']; ?></a>    </b></h5> 
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<h4> <a href="http://localhost/foodvn/index.php/user/detail_article/?id_article=<?php echo $item["id_article"] ?>" > <?php echo $item['title_article']; ?> </a>  </h4>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<img src="http://localhost/foodvn/upload/<?php echo $item['file_name'];?>" width="140px" height="160px" />
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-width="60" data-type="button"></div>
+					</td>
+				</tr>
+				<?php } ?> 
+			</table>
+			
+			<?php if(($item["id_category"])==3){ ?>
+				<table id="list_article" class="list_article_main">
+				<tr>
+					<td>
+					<h5>Posted by: <b> <a href="http://localhost/foodvn/index.php/user/check_user/?iduser=<?php echo $item["iduser"] ?>" id="url_user"><?php echo $item['username']; ?></a>    </b></h5> 
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<h4> <a href="http://localhost/foodvn/index.php/user/detail_article/?id_article=<?php echo $item["id_article"] ?>" > <?php echo $item['title_article']; ?> </a>  </h4>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<img src="http://localhost/foodvn/upload/<?php echo $item['file_name'];?>" width="140px" height="160px" />
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-width="60" data-type="button"></div>
+					</td>
+				</tr>
+				<?php } ?> 
+			</table>
+			
+			<?php if(($item["id_category"])==4){ ?>
+				<table id="list_article" class="list_article_dessert">
+				<tr>
+					<td>
+					<h5>Posted by: <b> <a href="http://localhost/foodvn/index.php/user/check_user/?iduser=<?php echo $item["iduser"] ?>" id="url_user"><?php echo $item['username']; ?></a>    </b></h5> 
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<h4> <a href="http://localhost/foodvn/index.php/user/detail_article/?id_article=<?php echo $item["id_article"] ?>" > <?php echo $item['title_article']; ?> </a>  </h4>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<img src="http://localhost/foodvn/upload/<?php echo $item['file_name'];?>" width="140px" height="160px" />
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-width="60" data-type="button"></div>
+					</td>
+				</tr>
+				<?php } ?> 
+			</table>
+			
+			<?php if(($item["id_category"])==5){ ?>
+				<table id="list_article" class="list_article_drink">
+				<tr>
+					<td>
+					<h5>Posted by: <b> <a href="http://localhost/foodvn/index.php/user/check_user/?iduser=<?php echo $item["iduser"] ?>" id="url_user"><?php echo $item['username']; ?></a>    </b></h5> 
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<h4> <a href="http://localhost/foodvn/index.php/user/detail_article/?id_article=<?php echo $item["id_article"] ?>" > <?php echo $item['title_article']; ?> </a>  </h4>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<img src="http://localhost/foodvn/upload/<?php echo $item['file_name'];?>" width="140px" height="160px" />
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-width="60" data-type="button"></div>
+					</td>
+				</tr>
+				<?php } ?> 
+			</table>
+			
+			<?php if(($item["id_category"])==6){ ?>
+				<table id="list_article" class="list_article_cake">
+				<tr>
+					<td>
+					<h5>Posted by: <b> <a href="http://localhost/foodvn/index.php/user/check_user/?iduser=<?php echo $item["iduser"] ?>" id="url_user"><?php echo $item['username']; ?></a>    </b></h5> 
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<h4> <a href="http://localhost/foodvn/index.php/user/detail_article/?id_article=<?php echo $item["id_article"] ?>" > <?php echo $item['title_article']; ?> </a>  </h4>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<img src="http://localhost/foodvn/upload/<?php echo $item['file_name'];?>" width="140px" height="160px" />
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-width="60" data-type="button"></div>
+					</td>
+				</tr>
+				<?php } ?> 
+			</table>
+			
+			<?php } ?>
 		</div>
+		
+		
 		<div id="footer">
 			<div class="home">
 				<div>

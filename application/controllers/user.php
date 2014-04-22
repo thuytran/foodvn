@@ -58,7 +58,7 @@ class User extends CI_Controller {
 		$this -> load -> model('userModel','',TRUE);
 		if($_POST['username']==null || $_POST['fullname']==null || $_POST['password']==null || $_POST['password_2'] != $_POST['password'] || strlen($_POST['password']<8))
 		{
-			$result = array('result'=>"Nhập thiếu hoặc sai các trường đề nghị đăng ký lại!");
+			$result = array('result'=>"Something are wrong or missing, try again!");
 			$this -> load -> view("sign_up",$result);
 		}
 		else
@@ -71,7 +71,7 @@ class User extends CI_Controller {
 			$regions = $_POST['regions'];
 			$user = array('iduser'=>$iduser,'username'=>$username,'fullname'=>$fullname,'dob'=>$dob,'regions'=>$regions,'email'=>$email,'password'=>$password);
 			$insert_new_user = $this -> userModel ->insert_new_user($user);
-			$result = array ('result'=>"Đăng ký thành công quay lại trang chủ để đăng nhập!");
+			$result = array ('result'=>"register successfully, go to sign in");
 			$this -> load ->view("sign_up",$result);
 			}
 		
@@ -90,6 +90,7 @@ class User extends CI_Controller {
 		$user = $this -> userModel -> signin($username,$password);
 		if($user!=null)
 			{
+			
 				$this -> session -> set_userdata('session_user',$user);
 				redirect('/user/homepage/','refresh');
 			}
@@ -101,13 +102,20 @@ class User extends CI_Controller {
 	}
 	
 	public function homepage(){
+		
+		$this->load->model("ArticleModel");
+		$data_article['article'] = $this -> articleModel -> get_article();
 		$iduser = $this -> get_current_user_id();
 		$result=$this -> userModel -> select($iduser);
 		$user = $result -> result_array();
 		if(count($user)==1){
-			$data = array('user'=>$user[0]);
+			$data = array('user'=>$user[0],'article'=> $this->articleModel->get_article());
 			$this -> load -> view('user_homepage',$data);
 		}
+		else
+			{
+				$this -> load -> view('homepage');
+			}
 	}
 	
 	public function logout($value = ''){
@@ -162,7 +170,7 @@ class User extends CI_Controller {
 		$ingredients = $this->input->post("ingredients");
 		$step1_prepare = $this->input->post("step1_prepare");
 		$step2_making = $this->input->post("step2_making");
-		$id_user = $this -> get_current_user_id();
+		$iduser = $this -> get_current_user_id();
 		$username = $this -> get_current_username();
 		if($title_article==null||$ingredients==null||$step1_prepare==null||$step2_making==null){
 				$status = "error";
@@ -186,7 +194,7 @@ class User extends CI_Controller {
 					{
 						$this->load->model("ArticleModel");
 						$data = $this->upload->data();
-						$info = array("id_user"=>$id_user,
+						$info = array("iduser"=>$iduser,
 						"username" => $username,
 						"id_category" => $_POST['id_category'],
 						"title_article" => $_POST['title_article'],
@@ -211,6 +219,46 @@ class User extends CI_Controller {
 					}
 		
 		}
+
+	public function check_user(){
+		//khi nguoi dung nhan vao link nguoi dung khac kiem tra xem nguoi dung nay da dang nhap chua neu chua thi tra ve trang dang ky neu roi thi tra ve trang ca nhan nguoi dung
+		if($this->my_usession->logged_in){
+			$iduser = $_GET["iduser"];
+		$user = $this -> userModel -> select($iduser) -> result_array();
+		$data["user"] = count($user) > 0 ? $user[0] : null;
+		$iduser_current = $this -> get_current_user_id(); // lay id user dang dang nhap
+		if($iduser!=$iduser_current){
+		$this->load->view('profile_user',$data); // neu la user khac yeu cau xem trang ca nhan cua nguoi su dung thi tra ve trang cua nguoi do
+		}
+		else
+			{
+				$this->userpage(); // neu la user click vao chinh ten minh thi load trang ca nhan cua chinh nguoi do
+			}
+			}
+		
+		else{
+			$result = array('result' => "You need to sign in before viewing this page!");
+			$this -> load -> view("sign_in",$result );
+		}
+	}
+	
+	// public function profile_user(){
+		// //ham thuc hien khi nguoi dung muon xem trang ca nhan cua nguoi dung khac
+// 		
+	// }
+	
+	public function detail_article()
+	{
+		$id_article = $_GET["id_article"];
+		$article = $this -> articleModel -> get_one_article($id_article)->result_array();
+		$data["article"] = count($article) > 0 ? $article[0] : null;
+		$this->load->view('detail_recipes',$data);
+	}
+	
+	public function follow_friend()
+	{
+		
+	}
 }
 
 /* End of file welcome.php */
