@@ -491,11 +491,11 @@ a.nivo-prevNav {
 	background: url(http://localhost/foodvn/public/image/bg_cake.png);
 }
 
+
 #list_article a{
 	text-decoration: none;
 	outline: none;
 	color: #9B5577;
-	font-family: "Comic Sans MS";
 }
 
 #upload{
@@ -512,4 +512,40 @@ a.nivo-prevNav {
 	margin-left: 200px;
 	margin-top: 100px;
 	margin-bottom: 150px;
+}
+.search_res{
+ 	margin-left: 250px;
+ 	margin-top: 100px;
+ }
+#search_res_form{
+	margin-bottom: 60px;
+	
+}
+
+#search_restaurant_btn{
+	background: url(http://localhost/foodvn/public/image/find.png) no-repeat 0 ;
+	border: none;
+	height: 42px;
+	width: 45px;
+}
+
+#result_search{
+	margin-top: 10px;
+	margin-bottom: 50px;
+	font-size: medium;
+	color: #400040;
+}
+
+#recent_activity{
+	width: 445px;
+	height: 200px;
+	overflow: auto;
+	float: right;
+	margin-top: 50px;
+	margin-right: 45px;
+	
+}
+
+#content b{
+	color: #400040;
 }

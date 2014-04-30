@@ -4,6 +4,7 @@ class Welcome extends CI_Controller {
 	function __construct() {
 		parent::__construct();
 		$this -> load -> model('articleModel', '', TRUE);
+		$this -> load -> model('restaurantModel', '', TRUE);
 		$this -> load -> library('session');
 		$this -> load -> helper('form');
 		$this -> load -> helper('url');
@@ -48,7 +49,10 @@ class Welcome extends CI_Controller {
 	}
 	public function restaurants()
 	{
-		$this->load->view('restaurants');
+		$this->load->model("RestaurantModel");
+		$data['restaurant'] = $this -> restaurantModel -> get_search();
+		
+		$this->load->view("restaurants",$data);
 	}
 	public function blogs()
 	{		

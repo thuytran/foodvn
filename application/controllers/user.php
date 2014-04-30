@@ -128,8 +128,11 @@ class User extends CI_Controller {
 		$iduser = $this -> get_current_user_id();
 		$result=$this -> userModel -> select($iduser);
 		$user = $result -> result_array();
-		if(count($user)==1){
-		$data = array('user' => $user[0],'result' => "");
+		$result2 = $this -> userModel -> select_activity($iduser);
+		$activity = $result2 -> result_array();
+		
+	if(count($user)==1){
+		$data = array('user' => $user[0],'activity'=>$activity,'result' => "");
 		$this -> load -> view('userpage',$data);
 		}
 		else{
@@ -202,6 +205,13 @@ class User extends CI_Controller {
 						"step1_prepare" => $_POST['step1_prepare'],
 						"step2_making" => $_POST['step2_making'],
 						"file_name" => $data['file_name']);
+						
+						$date = date('Y/m/d H:i:s');
+						$activity = array("iduser"=>$iduser,
+						"username"=>$username,
+						"activity"=>"upload new recipe",
+						"time"=>$date);
+						$act = $this->ArticleModel->insert_activity($activity);      
 						$fid = $this->ArticleModel->upload_new_recipe($info);
 						$iduser = $this -> get_current_user_id();
 						$result=$this -> userModel -> select($iduser);
@@ -259,6 +269,8 @@ class User extends CI_Controller {
 	{
 		
 	}
+	
+	
 }
 
 /* End of file welcome.php */

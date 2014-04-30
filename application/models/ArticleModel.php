@@ -2,6 +2,7 @@
 class ArticleModel extends CI_Model{
 	protected $_table1 = "blogs";
 	protected $_table2="article";
+	protected $_table3="activity";
 	public function __construct(){
 		parent::__construct();
 		$this->load->database();
@@ -39,6 +40,11 @@ class ArticleModel extends CI_Model{
 	{
 		$result = $this->db->query("select * from article where id_article=?",array($id_article));
 		return $result;
+	}
+	
+	public function insert_activity($activity){
+		$this->db->insert($this->_table3,$activity);
+		return $this->db->insert_id();
 	}
 }
 ?>

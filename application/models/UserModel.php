@@ -26,6 +26,13 @@ class UserModel extends CI_Model{
 		return $result;
 	}
 	
+	public function select_activity($iduser)
+	{
+		$result2 = $this->db->query("select * from activity where iduser=?",array($iduser));
+		return $result2;
+		
+	}
+	
 	public function update($iduser,$user)
 	{
 		$this->db->where('iduser',$iduser);

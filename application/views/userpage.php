@@ -64,7 +64,6 @@
 				
 				
 					
-				
 					<div id="upload">
 					<form  method="post" action="http://localhost/foodvn/index.php/user/upload_new_recipe" enctype="multipart/form-data">
 						<table>
@@ -91,32 +90,23 @@
 					</form>
 					</div>
 					
-			</div>
+	
+				
+					
+					<div id="recent_activity">
+						<p><b>Recent activity</b></p>
+						<?php for($i=0;$i<count($activity);$i++){
+							$item = $activity[$i]; ?>
+						<p><?php echo $item["username"];?>: <?php  echo $item["activity"]; ?>  at  <?php  echo $item["time"];?> </p>
+						
+						<?php } ?>
+						</div>
 				
 				
-				
-				<div>
-					<ul>
-					<li>
-						<a href=""> Following </a>
-					</li>
-					<li>
-						<a href=""> Followers </a>
-					</li>
-					<li>
-						<a href=""> Collections </a>
-					</li>
-					<li>
-						<a href=""> Notifications </a>
-					</li>
-					<li>
-						<a href=""> Activity </a>
-					</li>
-					</ul>
-			</div>
 			
 			
-		</div>
+		</div> <!-- dong the content -->
+		
 		<div id="footer">
 			<div class="home">
 				<div>

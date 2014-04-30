@@ -13,13 +13,10 @@
 					</div>
 					<div>
 						<div>
-							<a href="index.php/user/sign_up">My account</a>
-							<a href="index.php/user/sign_in">Sign in</a>
+							<a href="http://localhost/foodvn/index.php/user/sign_up">My account</a>
+							<a href="http://localhost/foodvn/index.php/user/sign_in">Sign in</a>
 						</div>
-						<form action="#">
-							<input type="text" id="search" maxlength="40" />
-							<input type="submit" value="" id="searchbtn" />
-						</form>
+						
 					</div>
 				</div>
 				<ul>
@@ -42,53 +39,35 @@
 		</div>	
 		</div>
 		
-		<div id="wrapper">
-        <div id="slider-wrapper">
-        
-            <div id="slider" class="nivoSlider">
-                <a href=""><img src="http://localhost/foodvn/public/image/breakfast.png" alt="" title="#htmlcaption" /></a>
-                <img src="http://localhost/foodvn/public/image/appetizers.png" alt="" title="#htmlcaption2" />
-                <img src="http://localhost/foodvn/public/image/main.png" alt="" title="#htmlcaption3" />
-                <img src="http://localhost/foodvn/public/image/dessert.png" alt="" title="#htmlcaption4" />
-                <img src="http://localhost/foodvn/public/image/drinks.png" alt="" title="#htmlcaption5" />
-                <img src="http://localhost/foodvn/public/image/cake.png" alt="" title="#htmlcaption6" />
-            </div>
-            <div id="htmlcaption" class="nivo-html-caption">
-                <a href="#">Recipe for Breakfast</a>
-            </div>
-            <div id="htmlcaption2" class="nivo-html-caption">
-                <a href="#">Recipe for Appetizer</a>
-            </div>
-            <div id="htmlcaption3" class="nivo-html-caption">
-                <a href="#">Recipe for Main</a>
-            </div>
-            <div id="htmlcaption4" class="nivo-html-caption">
-                <a href="#">Recipe for Dessert</a>
-            </div>
-            <div id="htmlcaption5" class="nivo-html-caption">
-                <a href="#">Recipe for Drinks</a>
-            </div>
-            <div id="htmlcaption6" class="nivo-html-caption">
-                <a href="#">Recipe for Cakes</a>
-            </div>
-        
-        </div>
-
-    </div>
-    <script type="text/javascript" src="http://localhost/foodvn/public/js/jquery-1.4.3.min.js"></script>
-    <script type="text/javascript" src="http://localhost/foodvn/public/js/jquery.nivo.slider.pack.js"></script>
-    <script type="text/javascript">
-    $(window).load(function() {
-        $('#slider').nivoSlider();
-    });
-    
-    </script>
+		
 		<div id="content">
-			<div class="home">
-				<div class="aside">
-					<h1>Welcome to our site</h1>
-					<p>index</p>
+			
+			<div class="search_res">
+				<div id="search_res_form">
+			   <form method="post" action="http://localhost/foodvn/index.php/restaurant/search" >
+					<select name="region">
+						<option value="hanoi">Hà Nội</option>
+						<option value="hcm">Hồ Chí Minh</option>
+						<option value="danang">Đà Nẵng</option>
+					</select>
+					<input type="text" placeholder="What are you hungry for?" name="key_search" size="80px"  />
+					<input type="submit" id="search_restaurant_btn" value=" "/>
+			   </form>
+			   </div>
+       			<div>
+				<img src="http://localhost/foodvn/public/image/search_res.png" />
 				</div>
+				<div id="result_search">
+
+						<?php for($i=0;$i<count($restaurant);$i++){ 
+					$item = $restaurant[$i];
+					?>
+					<h2> <?php echo $item['name_res']; ?> </h2>
+					<i><?php echo $item['address'];  ?></i>
+					<?php } ?>
+						
+				</div>
+				
 			</div>
 		</div>
 		<div id="footer">
