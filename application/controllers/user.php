@@ -176,11 +176,15 @@ class User extends CI_Controller {
 		$iduser = $this -> get_current_user_id();
 		$username = $this -> get_current_username();
 		if($title_article==null||$ingredients==null||$step1_prepare==null||$step2_making==null){
-				$status = "error";
-				$msg = "try again!";
+				$iduser = $this -> get_current_user_id();
+				$result=$this -> userModel -> select($iduser);
+				$user = $result -> result_array();
+				$data = array('user'=>$user[0],'result' => "Error, try again!"); 
+				$this -> load -> view("userpage",$data );
+				redirect('http://localhost/foodvn/index.php/user/userpage', 'refresh'); 
 		}
 		
-		if($status!="error")
+		else
 			{
 				$config['upload_path'] = '.\upload';
 				$config['allowed_types'] = 'png|jpg|gif';
@@ -205,31 +209,27 @@ class User extends CI_Controller {
 						"step1_prepare" => $_POST['step1_prepare'],
 						"step2_making" => $_POST['step2_making'],
 						"file_name" => $data['file_name']);
-						
-						$date = date('Y/m/d H:i:s');
+						 
+				       	$date = date('Y/m/d H:i:s');
+						$id_article = $this->articleModel->get_id_article_last()+1;
 						$activity = array("iduser"=>$iduser,
 						"username"=>$username,
 						"activity"=>"upload new recipe",
-						"time"=>$date);
-						$act = $this->ArticleModel->insert_activity($activity);      
-						$fid = $this->ArticleModel->upload_new_recipe($info);
+						"time"=>$date,
+						"id_article"=>$id_article);
+						
 						$iduser = $this -> get_current_user_id();
 						$result=$this -> userModel -> select($iduser);
 						$user = $result -> result_array();
-						if($fid){
-							$data = array('user'=>$user[0],'result' => "Uploaded!");
-							$this -> load -> view("userpage",$data );
-						}
-						else{
-							$data = array('user'=>$user[0],'result' => "Error, try again!");
-							$this -> load -> view("userpage",$data );
-						}
-						
+						$act = $this->ArticleModel->insert_activity($activity);      
+						$fid = $this->ArticleModel->upload_new_recipe($info);
+						$data = array('user'=>$user[0],'result' => "Uploaded!");
+						$this -> load -> view("userpage",$data );
+						redirect('http://localhost/foodvn/index.php/user/userpage', 'refresh'); 
 					}
-					}
+				}
 		
 		}
-
 	public function check_user(){
 		//khi nguoi dung nhan vao link nguoi dung khac kiem tra xem nguoi dung nay da dang nhap chua neu chua thi tra ve trang dang ky neu roi thi tra ve trang ca nhan nguoi dung
 		if($this->my_usession->logged_in){

@@ -28,10 +28,19 @@ class ArticleModel extends CI_Model{
 	public function upload_new_recipe($data){
 		$this->db->insert($this->_table2,$data);
 		return $this->db->insert_id();
+		
+	}
+	
+	public function get_id_article_last()
+	{
+		$this->db->select_max('id_article');
+		$query = $this->db->get('article');
+		return $query->row()->id_article;
 	}
 	
 	public function get_article()
 	{
+		
 		$select_article = $this->db->query("select * from article ORDER BY id_article DESC");
 		return $select_article->result_array();
 	}
