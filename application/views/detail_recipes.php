@@ -11,30 +11,7 @@
 					<div id="logo">
 						<img src="http://localhost/foodvn/public/image/logo.png"/>
 					</div>
-					<div>
-						<form action="#">
-							<input type="text" id="search" maxlength="40" />
-							<input type="submit" value="" id="searchbtn" />
-						</form>
-					</div>
 				</div>
-				<ul>
-					<li>
-						<a href="http://localhost/foodvn/index.php">Home</a>
-					</li>
-					<li>
-						<a href="http://localhost/foodvn/index.php/welcome/about">About us</a>
-					</li>
-					<li  class="current">
-						<a href="http://localhost/foodvn/index.php/welcome/recipes">Recipes</a>
-					</li>
-					<li>
-						<a href="http://localhost/foodvn/index.php/welcome/restaurants">Restaurants</a>
-					</li>
-					<li>
-						<a href="http://localhost/foodvn/index.php/welcome/blogs">Blogs</a>
-					</li>
-				</ul>
 		</div>	
 		</div>
 		
@@ -61,6 +38,37 @@
 		</ul>	
 		</div>	
 		
+		<div id="fb-root"></div>
+		<script>
+			( function(d, s, id) {
+					var js, fjs = d.getElementsByTagName(s)[0];
+					if (d.getElementById(id))
+						return;
+					js = d.createElement(s);
+					js.id = id;
+					js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.0";
+					fjs.parentNode.insertBefore(js, fjs);
+				}(document, 'script', 'facebook-jssdk'));
+				</script>
+		
+		<div class="fb-like" data-href="https://www.facebook.com/foodvnam" data-width="60" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+		
+		<div id="rating">
+			<form action="http://localhost/foodvn/index.php/user/rating" method="post">
+			<p>Rate this recipe </p>
+			<input type="radio" value="1" name="point_rating" id="point1" title="1-poor"/>
+			<input type="radio" value="2" name="point_rating" id="point2" title="2-fair"/>
+			<input type="radio" value="3" name="point_rating" id="point3" title="3-average"/>
+			<input type="radio" value="4" name="point_rating" id="point4" title="4-good"/>
+			<input type="radio" value="5" name="point_rating" id="point5" title="5-excellent"/>
+			<input type="hidden" name="id_article" value="<?php echo $article['id_article'];?>" />
+			<input type="submit" value="rating" />
+			</form>
+		</div>
+		
+   
+   		
+   		
 		<div id="footer">
 			<div class="home">
 					<div>

@@ -97,8 +97,8 @@
 						<p><b>Recent activity</b></p>
 						<?php for($i=0;$i<count($activity);$i++){
 							$item = $activity[$i]; ?>
-						<p><?php echo $item["username"];?>: <?php  echo $item["activity"]; ?>  at  <?php  echo $item["time"];?> </p>
-						
+						<p><?php echo $item["username"];?>: <a href="http://localhost/foodvn/index.php/user/detail_article/?id_article=<?php echo $item["id_article"];?>"> <?php  echo $item["activity"]; ?></a> at  <?php  echo $item["time"];?> 
+							</p>
 						<?php } ?>
 						</div>
 				

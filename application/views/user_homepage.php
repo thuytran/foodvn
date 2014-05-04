@@ -120,7 +120,7 @@
 				</tr>
 				<tr>
 					<td>
-						<div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-width="60" data-type="button"></div>
+						<div class="fb-share-button" data-href="http://localhost/foodvn/index.php/user/detail_article/?id_article=<?php echo $item["id_article"];?>" data-width="60" data-type="button"></div>
 					</td>
 				</tr>
 				<?php } ?> 
@@ -144,7 +144,7 @@
 				</tr>
 				<tr>
 					<td>
-						<div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-width="60" data-type="button"></div>
+						<div class="fb-share-button" data-href="http://localhost/foodvn/index.php/user/detail_article/?id_article=<?php echo $item["id_article"];?>" data-width="60" data-type="button"></div>
 					</td>
 				</tr>
 				<?php } ?> 
@@ -169,7 +169,7 @@
 				</tr>
 				<tr>
 					<td>
-						<div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-width="60" data-type="button"></div>
+						<div class="fb-share-button" data-href="http://localhost/foodvn/index.php/user/detail_article/?id_article=<?php echo $item["id_article"];?>" data-width="60" data-type="button"></div>
 					</td>
 				</tr>
 				<?php } ?> 
@@ -194,7 +194,7 @@
 				</tr>
 				<tr>
 					<td>
-						<div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-width="60" data-type="button"></div>
+						<div class="fb-share-button" data-href="http://localhost/foodvn/index.php/user/detail_article/?id_article=<?php echo $item["id_article"];?>" data-width="60" data-type="button"></div>
 					</td>
 				</tr>
 				<?php } ?> 
@@ -219,7 +219,7 @@
 				</tr>
 				<tr>
 					<td>
-						<div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-width="60" data-type="button"></div>
+						<div class="fb-share-button" data-href="http://localhost/foodvn/index.php/user/detail_article/?id_article=<?php echo $item["id_article"];?>" data-width="60" data-type="button"></div>
 					</td>
 				</tr>
 				<?php } ?> 
@@ -244,7 +244,7 @@
 				</tr>
 				<tr>
 					<td>
-						<div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-width="60" data-type="button"></div>
+						<div class="fb-share-button" data-href="http://localhost/foodvn/index.php/user/detail_article/?id_article=<?php echo $item["id_article"];?>" data-width="60" data-type="button"></div>
 					</td>
 				</tr>
 				<?php } ?> 

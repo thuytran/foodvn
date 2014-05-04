@@ -364,11 +364,27 @@ ul li{
 #detail_recipes {
 	height: auto;
 	margin-top: 60px;
-	margin-left: 150px;
+	margin-left: 100px;
 	margin-right: 50px;
+	margin-bottom: 60px;
 }
 #detail_recipes h3{
  	font-family: "Comic Sans MS";
  	color: #9B5577;
  }
+.fb-like{
+	margin-left: 150px;
+	margin-bottom: 50px;
+}
 
+
+#rating{
+	margin-left: 150px;
+	margin-bottom: 50px;
+	font-size: 14px;
+	font-style: italic;
+	font-weight: bold;
+	color: #000000;
+	
+}
+ 

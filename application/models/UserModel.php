@@ -39,4 +39,11 @@ class UserModel extends CI_Model{
 		$result = $this->db->update("user",$user);
 		return $result;
 	}
+	
+	public function rating($data,$id_article)
+	{
+		$this->db->where('id_article',$id_article);
+		$rating = $this->db->update("article",$data);
+		return $rating;
+	}
 }

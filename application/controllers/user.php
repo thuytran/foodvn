@@ -166,8 +166,6 @@ class User extends CI_Controller {
 	}
 	
 	public function upload_new_recipe(){
-		$status = "";
-		$msg = "";
 		$id_category = $this->input->post("id_category");
 		$title_article = $this->input->post("title_article");
 		$ingredients = $this->input->post("ingredients");
@@ -176,12 +174,9 @@ class User extends CI_Controller {
 		$iduser = $this -> get_current_user_id();
 		$username = $this -> get_current_username();
 		if($title_article==null||$ingredients==null||$step1_prepare==null||$step2_making==null){
-				$iduser = $this -> get_current_user_id();
-				$result=$this -> userModel -> select($iduser);
-				$user = $result -> result_array();
-				$data = array('user'=>$user[0],'result' => "Error, try again!"); 
-				$this -> load -> view("userpage",$data );
-				redirect('http://localhost/foodvn/index.php/user/userpage', 'refresh'); 
+				echo "<script language=\"javascript\">
+						window.location.href = 'http://localhost/foodvn/index.php/user/userpage';
+						alert('You must enter all fields to upload! Try again!');</script>";
 		}
 		
 		else
@@ -193,9 +188,10 @@ class User extends CI_Controller {
 				$this->load->library("upload",$config);
 				if(!$this->upload->do_upload("file_name"))
 					{
-						$status = "error";
-						$msg = $this->upload->display_errors('<p>','</p>');
-						echo $msg;
+						echo "<script language=\"javascript\">
+						window.location.href = 'http://localhost/foodvn/index.php/user/userpage';
+						alert('You did not choose image to upload! Try again!');</script>";
+						
 					}
 				else
 					{
@@ -263,6 +259,19 @@ class User extends CI_Controller {
 		$article = $this -> articleModel -> get_one_article($id_article)->result_array();
 		$data["article"] = count($article) > 0 ? $article[0] : null;
 		$this->load->view('detail_recipes',$data);
+	}
+	
+	public function rating()
+	{
+		$this -> load -> model('userModel','',TRUE);
+		$point_rating = $this->input->post('point_rating');
+		$id_article = $this->input->post('id_article');
+		$data = array('rating' => $point_rating );
+		$rating = $this -> userModel -> rating($data,$id_article);
+		echo "<script language=\"javascript\">
+		history.back();
+		</script>";
+		
 	}
 	
 	public function follow_friend()
