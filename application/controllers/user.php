@@ -229,7 +229,7 @@ class User extends CI_Controller {
 	public function check_user(){
 		//khi nguoi dung nhan vao link nguoi dung khac kiem tra xem nguoi dung nay da dang nhap chua neu chua thi tra ve trang dang ky neu roi thi tra ve trang ca nhan nguoi dung
 		if($this->my_usession->logged_in){
-			$iduser = $_GET["iduser"];
+		$iduser = $_GET["iduser"];
 		$user = $this -> userModel -> select($iduser) -> result_array();
 		$data["user"] = count($user) > 0 ? $user[0] : null;
 		$iduser_current = $this -> get_current_user_id(); // lay id user dang dang nhap
@@ -263,14 +263,35 @@ class User extends CI_Controller {
 	
 	public function rating()
 	{
+		if($this->my_usession->logged_in){
 		$this -> load -> model('userModel','',TRUE);
-		$point_rating = $this->input->post('point_rating');
+		$this -> load -> model('articleModel','',TRUE);
+		$point = $this->input->post('point_rating');
 		$id_article = $this->input->post('id_article');
-		$data = array('rating' => $point_rating );
-		$rating = $this -> userModel -> rating($data,$id_article);
+		$iduser = $this -> get_current_user_id();
+		$data = array('iduser' => $iduser, 'id_article' => $id_article, 'point' => $point );
+		
+		$date = date('Y/m/d H:i:s');
+		$username = $this -> get_current_username();
+		$activity = array("iduser"=>$iduser,
+						"username"=>$username,
+						"activity"=>"rate a recipe",
+						"time"=>$date,
+						"id_article"=>$id_article);
+						
+		$act = $this -> articleModel -> insert_activity($activity); 
+		$rating = $this -> userModel -> rating($data,$id_article,$iduser);
 		echo "<script language=\"javascript\">
+		alert('thank you!');
 		history.back();
 		</script>";
+		}
+		else{
+		echo "<script language=\"javascript\">
+		alert('You should signin to rate this recipe!');
+		history.back();
+		</script>";
+		}
 		
 	}
 	
