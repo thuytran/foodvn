@@ -257,6 +257,7 @@ class User extends CI_Controller {
 	{
 		$id_article = $_GET["id_article"];
 		$article = $this -> articleModel -> get_one_article($id_article)->result_array();
+		$data["point_article"] = $this -> userModel -> average_point_rating($id_article); 
 		$data["article"] = count($article) > 0 ? $article[0] : null;
 		$this->load->view('detail_recipes',$data);
 	}
@@ -280,7 +281,7 @@ class User extends CI_Controller {
 						"id_article"=>$id_article);
 						
 		$act = $this -> articleModel -> insert_activity($activity); 
-		$rating = $this -> userModel -> rating($data,$id_article,$iduser);
+		$rating = $this -> userModel -> rating($data,$iduser,$id_article);
 		echo "<script language=\"javascript\">
 		alert('thank you!');
 		history.back();

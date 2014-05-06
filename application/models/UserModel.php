@@ -28,37 +28,42 @@ class UserModel extends CI_Model{
 	
 	public function select_activity($iduser)
 	{
-		$result2 = $this->db->query("select * from activity where iduser=?",array($iduser));
+		$result2 = $this->db->query("select * from activity where iduser=?" ,array($iduser));
 		return $result2;
-		
-	}
-	
-	public function update($iduser,$user)
-	{
-		$this->db->where('iduser',$iduser);
-		$result = $this->db->update("user" ,$user);
-			return $result;
-			}
-
-			public function rating($data,$iduser,$id_article)
-			{
-
-			$sql = "select iduser, id_article from rating where iduser=? and id_article =?";
-			$query = $this->db->query($sql,array($iduser,$id_article));
-
-			if($query != null){
-				echo "<script language=\"javascript\">
-				alert('You rated this recipe and can not rate again!');
-				</script>";
-			return null;
-			}
-			else{
-			$this->db->insert("rating",$data);
-			return $this->db->insert_id();
-			}
 
 		}
 
-	
+		public function update($iduser,$user)
+		{
+			$this->db->where('iduser',$iduser);
+			$result = $this->db->update("user" ,$user);
+			return $result;
+		}
+
+		public function rating($data,$iduser,$id_article)
+		{
+
+			$sql = "select iduser, id_article from rating where iduser=? and id_article =?";
+			$query = $this->db->query($sql,array($iduser,$id_article));
+			if($query !=null && $query->num_rows()==1){
+				echo "<script language=\"javascript\">
+				alert('You rated this recipe and can not rate again!');
+				</script>";
+				return null;
+		}
+		else{
+			$this->db->insert("rating",$data);
+			return $this->db->insert_id();
+		}
+
+	}
+		
+		public function average_point_rating($id_article){
+			$this->db->select_avg('point');
+			$this->db->where('id_article', $id_article);
+			$query = $this->db->get('rating')->result_array();
+			return count($query)?$query[0]["point"]:null;
+		}
+
 }
 		

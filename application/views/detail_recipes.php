@@ -21,7 +21,7 @@
 				<b><?php echo $article['title_article']; ?></b> 
 			</li>
 			<li id="user">
-				<h5>Posted by: <b> <a href="http://localhost/foodvn/index.php/user/check_user/?iduser=<?php echo $article["iduser"];?> id="url_user" ><?php echo $article['username']; ?></a>    </b></h5> 
+				<h5>Posted by: <b> <a href="http://localhost/foodvn/index.php/user/check_user/?iduser=<?php echo $article["iduser"];?>" id="url_user" ><?php echo $article['username']; ?></a>    </b></h5> 
 			</li>
 			<li id="file_name">
 				<img src="http://localhost/foodvn/upload/<?php echo $article['file_name'];?>" width="300px" height ="320px" />
@@ -65,6 +65,7 @@
 			<input type="radio" value="4" name="point_rating" id="point4" title="4-good"/>
 			<input type="radio" value="5" name="point_rating" id="point5" title="5-excellent"/>
 			<input type="hidden" name="id_article" value="<?php echo $article['id_article'];?>" />
+			<p><?php echo $point_article; ?></p>
 			<input type="submit" value="rating" />
 			</form>
 		</div>
