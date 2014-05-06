@@ -93,7 +93,8 @@
 	
 				
 					
-					<div id="recent_activity">
+					<div id="activity">
+						<div id="recent_activity">
 						<p><b>Recent activity</b></p>
 						<?php for($i=0;$i<count($activity);$i++){
 							$item = $activity[$i]; ?>
@@ -101,6 +102,33 @@
 							</p>
 						<?php } ?>
 						</div>
+						
+						<div id="list_uploaded">
+							<table>
+							<tr>
+								<td>
+									<p>The recipes you have posted</p>
+								</td>
+							</tr>
+								<?php for($i=0;$i<count($list_article_byid);$i++){
+									$item = $list_article_byid[$i]; ?>
+									<tr>
+										<td>
+											<a href="http://localhost/foodvn/index.php/user/detail_article/?id_article=<?php echo $item["id_article"] ?>" > <?php echo $item['title_article']; ?> </a>  
+										</td>
+										
+										<td id="delete">
+											<a href="http://localhost/foodvn/index.php/user/delete_article/?id_article=<?php echo $item["id_article"] ?>"> delete </a>
+										</td>
+									</tr>
+								<?php } ?>
+							</table>
+						</div>
+						
+						</div>
+						
+						
+						
 				
 				
 			

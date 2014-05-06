@@ -535,16 +535,52 @@ a.nivo-prevNav {
 	color: #400040;
 }
 
+#activity{
+	
+	float: right;
+	margin-top: 50px;
+	margin-right: 40px;
+}
+
 #recent_activity{
 	width: 445px;
 	height: 200px;
 	overflow: auto;
-	float: right;
-	margin-top: 50px;
-	margin-right: 40px;
-	
+}
+
+#list_uploaded{
+	margin-top: 100px;
+	width: 445px;
+	height: 300px;
+	overflow: auto;
+}
+
+#list_uploaded p{
+	font-weight: bold;
+	color: #400040;
+}
+#list_uploaded a{
+	text-decoration: blink;
+	color: #D75726;
+}
+
+#delete a{
+	color: #D71A1A;
 }
 
 #content b{
 	color: #400040;
+}
+
+
+#backbtn
+{
+	background: url(http://localhost/foodvn/public/image/sprite-buttons.gif) no-repeat 0 -376px;
+	color: #84284D;
+	border: 0;
+	height: 27px;
+	font-size: 11px;
+	margin-top: 20px;
+	width: 90px;
+	margin-bottom: 50px;
 }

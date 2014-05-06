@@ -54,22 +54,22 @@
                 <img src="http://localhost/foodvn/public/image/cake.png" alt="" title="#htmlcaption6" />
             </div>
             <div id="htmlcaption" class="nivo-html-caption">
-                <a href="#">Recipe for Breakfast</a>
+                <a href="http://localhost/foodvn/index.php/welcome/breakfast">Recipe for Breakfast</a>
             </div>
             <div id="htmlcaption2" class="nivo-html-caption">
-                <a href="#">Recipe for Appetizer</a>
+                <a href="http://localhost/foodvn/index.php/welcome/appetizers">Recipe for Appetizer</a>
             </div>
             <div id="htmlcaption3" class="nivo-html-caption">
-                <a href="#">Recipe for Main</a>
+                <a href="http://localhost/foodvn/index.php/welcome/main">Recipe for Main</a>
             </div>
             <div id="htmlcaption4" class="nivo-html-caption">
-                <a href="#">Recipe for Dessert</a>
+                <a href="http://localhost/foodvn/index.php/welcome/dessert">Recipe for Dessert</a>
             </div>
             <div id="htmlcaption5" class="nivo-html-caption">
-                <a href="#">Recipe for Drinks</a>
+                <a href="http://localhost/foodvn/index.php/welcome/drink">Recipe for Drinks</a>
             </div>
             <div id="htmlcaption6" class="nivo-html-caption">
-                <a href="#">Recipe for Cakes</a>
+                <a href="http://localhost/foodvn/index.php/welcome/cake">Recipe for Cakes</a>
             </div>
         
         </div>

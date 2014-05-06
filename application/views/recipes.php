@@ -9,86 +9,39 @@
 			<div>
 				<div>
 					<div id="logo">
-						<a href="http://localhost/foodvn/index.php"><img src="http://localhost/foodvn/public/image/logo.png"/></a>
+						<img src="http://localhost/foodvn/public/image/logo.png"/>
 					</div>
 					<div>
-						<div>
-							<a href="index.php/user/sign_up">My account</a>
-							<a href="index.php/user/sign_in">Sign in</a>
-						</div>
-						<form action="#">
-							<input type="text" id="search" maxlength="40" />
-							<input type="submit" value="" id="searchbtn" />
-						</form>
 					</div>
 				</div>
-				<ul>
-					<li>
-						<a href="http://localhost/foodvn/index.php">Home</a>
-					</li>
-					<li>
-						<a href="http://localhost/foodvn/index.php/welcome/about">About us</a>
-					</li>
-					<li class="current">
-						<a href="http://localhost/foodvn/index.php/welcome/recipes">Recipes</a>
-					</li>
-					<li>
-						<a href="http://localhost/foodvn/index.php/welcome/restaurants">Restaurants</a>
-					</li>
-					<li>
-						<a href="http://localhost/foodvn/index.php/welcome/blogs">Blogs</a>
-					</li>
-				</ul>
 		</div>	
 		</div>
 		
-		<div id="wrapper">
-        <div id="slider-wrapper">
-        
-            <div id="slider" class="nivoSlider">
-                <a href=""><img src="http://localhost/foodvn/public/image/breakfast.png" alt="" title="#htmlcaption" /></a>
-                <img src="http://localhost/foodvn/public/image/appetizers.png" alt="" title="#htmlcaption2" />
-                <img src="http://localhost/foodvn/public/image/main.png" alt="" title="#htmlcaption3" />
-                <img src="http://localhost/foodvn/public/image/dessert.png" alt="" title="#htmlcaption4" />
-                <img src="http://localhost/foodvn/public/image/drinks.png" alt="" title="#htmlcaption5" />
-                <img src="http://localhost/foodvn/public/image/cake.png" alt="" title="#htmlcaption6" />
-            </div>
-            <div id="htmlcaption" class="nivo-html-caption">
-                <a href="#">Recipe for Breakfast</a>
-            </div>
-            <div id="htmlcaption2" class="nivo-html-caption">
-                <a href="#">Recipe for Appetizer</a>
-            </div>
-            <div id="htmlcaption3" class="nivo-html-caption">
-                <a href="#">Recipe for Main</a>
-            </div>
-            <div id="htmlcaption4" class="nivo-html-caption">
-                <a href="#">Recipe for Dessert</a>
-            </div>
-            <div id="htmlcaption5" class="nivo-html-caption">
-                <a href="#">Recipe for Drinks</a>
-            </div>
-            <div id="htmlcaption6" class="nivo-html-caption">
-                <a href="#">Recipe for Cakes</a>
-            </div>
-        
-        </div>
-
-    </div>
-    <script type="text/javascript" src="http://localhost/foodvn/public/js/jquery-1.4.3.min.js"></script>
-    <script type="text/javascript" src="http://localhost/foodvn/public/js/jquery.nivo.slider.pack.js"></script>
-    <script type="text/javascript">
-    $(window).load(function() {
-        $('#slider').nivoSlider();
-    });
-    
-    </script>
+		
 		<div id="content">
-			<div class="home">
-				<div class="aside">
-					<h1>Welcome to our site</h1>
-					<p>index</p>
+			
+			<div class="search_res">
+				<div id="search_res_form">
+			   <form method="post" action="http://localhost/foodvn/index.php/user/search_recipe" >
+					<input type="text" placeholder="enter suggestion key to search recipe for cook " name="key_search" size="80px"  />
+					<input type="submit" id="search_restaurant_btn" value=" "/>
+			   </form>
+			   </div>
+       			<div>
+				<img src="http://localhost/foodvn/public/image/search_recipe.png" />
 				</div>
+				<div id="result_search">
+
+						<?php for($i=0;$i<count($article);$i++){ 
+					$item = $article[$i];
+					?>
+					<a href="http://localhost/foodvn/index.php/user/detail_article/?id_article=<?php echo $item["id_article"] ?>" > <?php echo $item['title_article']; ?> </a>
+					<?php } ?>
+						
+				</div>
+				
+				<form><input type="button" id="backbtn" value="Click to go back" onClick="history.go(-1);return true;"></form>
+				
 			</div>
 		</div>
 		<div id="footer">

@@ -103,7 +103,6 @@ class User extends CI_Controller {
 	
 	public function homepage(){
 		
-		$this->load->model("ArticleModel");
 		$data_article['article'] = $this -> articleModel -> get_article();
 		$iduser = $this -> get_current_user_id();
 		$result=$this -> userModel -> select($iduser);
@@ -118,6 +117,98 @@ class User extends CI_Controller {
 			}
 	}
 	
+	public function userhome_breakfast(){
+		$data_article['article'] = $this -> articleModel -> get_article_breakfast();
+		$iduser = $this -> get_current_user_id();
+		$result=$this -> userModel -> select($iduser);
+		$user = $result -> result_array();
+		if(count($user)==1){
+			$data = array('user'=>$user[0],'article'=> $this->articleModel->get_article_breakfast());
+			$this -> load -> view('user_homepage',$data);
+		}
+		else
+			{
+				$this -> load -> view('homepage');
+			}
+	}
+	
+	
+	public function userhome_appetizer(){
+		$data_article['article'] = $this -> articleModel -> get_article_appetizers();
+		$iduser = $this -> get_current_user_id();
+		$result=$this -> userModel -> select($iduser);
+		$user = $result -> result_array();
+		if(count($user)==1){
+			$data = array('user'=>$user[0],'article'=> $this->articleModel->get_article_appetizers());
+			$this -> load -> view('user_homepage',$data);
+		}
+		else
+			{
+				$this -> load -> view('homepage');
+			}
+	}
+	
+	public function userhome_main(){
+		$data_article['article'] = $this -> articleModel -> get_article_main();
+		$iduser = $this -> get_current_user_id();
+		$result=$this -> userModel -> select($iduser);
+		$user = $result -> result_array();
+		if(count($user)==1){
+			$data = array('user'=>$user[0],'article'=> $this->articleModel->get_article_main());
+			$this -> load -> view('user_homepage',$data);
+		}
+		else
+			{
+				$this -> load -> view('homepage');
+			}
+	}
+	
+		public function userhome_dessert(){
+		$data_article['article'] = $this -> articleModel -> get_article_dessert();
+		$iduser = $this -> get_current_user_id();
+		$result=$this -> userModel -> select($iduser);
+		$user = $result -> result_array();
+		if(count($user)==1){
+			$data = array('user'=>$user[0],'article'=> $this->articleModel->get_article_dessert());
+			$this -> load -> view('user_homepage',$data);
+		}
+		else
+			{
+				$this -> load -> view('homepage');
+			}
+	}
+	
+		public function userhome_drink(){
+		$data_article['article'] = $this -> articleModel -> get_article_drink();
+		$iduser = $this -> get_current_user_id();
+		$result=$this -> userModel -> select($iduser);
+		$user = $result -> result_array();
+		if(count($user)==1){
+			$data = array('user'=>$user[0],'article'=> $this->articleModel->get_article_drink());
+			$this -> load -> view('user_homepage',$data);
+		}
+		else
+			{
+				$this -> load -> view('homepage');
+			}
+	}
+	
+	public function userhome_cake(){
+		$data_article['article'] = $this -> articleModel -> get_article_cake();
+		$iduser = $this -> get_current_user_id();
+		$result=$this -> userModel -> select($iduser);
+		$user = $result -> result_array();
+		if(count($user)==1){
+			$data = array('user'=>$user[0],'article'=> $this->articleModel->get_article_cake());
+			$this -> load -> view('user_homepage',$data);
+		}
+		else
+			{
+				$this -> load -> view('homepage');
+			}
+	}
+	
+	
 	public function logout($value = ''){
 		$this->session->unset_userdata('session_user');
 		redirect("http://localhost/foodvn/index.php","refresh");
@@ -130,9 +221,11 @@ class User extends CI_Controller {
 		$user = $result -> result_array();
 		$result2 = $this -> userModel -> select_activity($iduser);
 		$activity = $result2 -> result_array();
+		$result3 = $this -> articleModel -> get_article_by_id($iduser);
+		$list_article_byid = $result3 -> result_array();
 		
-	if(count($user)==1){
-		$data = array('user' => $user[0],'activity'=>$activity,'result' => "");
+		if(count($user)==1){
+		$data = array('user' => $user[0],'activity'=>$activity,'result' => "",'list_article_byid'=>$list_article_byid);
 		$this -> load -> view('userpage',$data);
 		}
 		else{
@@ -294,6 +387,24 @@ class User extends CI_Controller {
 		</script>";
 		}
 		
+	}
+
+	public function delete_article()
+	{
+		$id_article = $_GET['id_article'];
+		$user = $this -> articleModel -> delete_article($id_article);
+		echo "<script language=\"javascript\">
+		alert('deleted!');
+		history.back();
+		</script>";
+		
+	}
+	
+	public function search_recipe(){
+		$result=$this -> articleModel -> get_search();
+		$article = $result -> result_array();
+		$data =array('article' => $article);
+		$this->load->view('recipes',$data);
 	}
 	
 	public function follow_friend()

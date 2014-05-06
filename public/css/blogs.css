@@ -354,6 +354,7 @@ a.nivo-prevNav {
 	font-size: 11px;
 	margin-top: 20px;
 	width: 90px;
+	margin-bottom: 50px;
 }
 
 ul li{
@@ -386,5 +387,13 @@ ul li{
 	font-weight: bold;
 	color: #000000;
 	
+}
+
+#user{
+	float: right;
+}
+#user a{
+	text-decoration: none;
+	color: #400040;
 }
  

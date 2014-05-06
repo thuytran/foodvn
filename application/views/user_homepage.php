@@ -55,22 +55,22 @@
                 <img src="http://localhost/foodvn/public/image/cake.png" alt="" title="#htmlcaption6" />
             </div>
             <div id="htmlcaption" class="nivo-html-caption">
-                <a href="#">Recipe for Breakfast</a>
+                <a href="http://localhost/foodvn/index.php/user/userhome_breakfast">Recipe for Breakfast</a>
             </div>
             <div id="htmlcaption2" class="nivo-html-caption">
-                <a href="#">Recipe for Appetizer</a>
+                <a href="http://localhost/foodvn/index.php/user/userhome_appetizer">Recipe for Appetizer</a>
             </div>
             <div id="htmlcaption3" class="nivo-html-caption">
-                <a href="#">Recipe for Main</a>
+                <a href="http://localhost/foodvn/index.php/user/userhome_main">Recipe for Main</a>
             </div>
             <div id="htmlcaption4" class="nivo-html-caption">
-                <a href="#">Recipe for Dessert</a>
+                <a href="http://localhost/foodvn/index.php/user/userhome_dessert">Recipe for Dessert</a>
             </div>
             <div id="htmlcaption5" class="nivo-html-caption">
-                <a href="#">Recipe for Drinks</a>
+                <a href="http://localhost/foodvn/index.php/user/userhome_drink">Recipe for Drinks</a>
             </div>
             <div id="htmlcaption6" class="nivo-html-caption">
-                <a href="#">Recipe for Cakes</a>
+                <a href="http://localhost/foodvn/index.php/user/userhome_cake">Recipe for Cakes</a>
             </div>
         
         </div>

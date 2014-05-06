@@ -9,33 +9,11 @@
 			<div>
 				<div>
 					<div id="logo">
-						<a href="http://localhost/foodvn/index.php"><img src="http://localhost/foodvn/public/image/logo.png"/></a>
+						<img src="http://localhost/foodvn/public/image/logo.png"/>
 					</div>
 					<div>
-						<div>
-							<a href="http://localhost/foodvn/index.php/user/sign_up">My account</a>
-							<a href="http://localhost/foodvn/index.php/user/sign_in">Sign in</a>
-						</div>
-						
 					</div>
 				</div>
-				<ul>
-					<li>
-						<a href="http://localhost/foodvn/index.php">Home</a>
-					</li>
-					<li>
-						<a href="http://localhost/foodvn/index.php/welcome/about">About us</a>
-					</li>
-					<li>
-						<a href="http://localhost/foodvn/index.php/welcome/recipes">Recipes</a>
-					</li>
-					<li  class="current">
-						<a href="http://localhost/foodvn/index.php/welcome/restaurants">Restaurants</a>
-					</li>
-					<li>
-						<a href="http://localhost/foodvn/index.php/welcome/blogs">Blogs</a>
-					</li>
-				</ul>
 		</div>	
 		</div>
 		
@@ -67,6 +45,8 @@
 					<?php } ?>
 						
 				</div>
+				
+				<form><input type="button" id="backbtn" value="Click to go back" onClick="history.go(-1);return true;"></form>
 				
 			</div>
 		</div>

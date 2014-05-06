@@ -28,8 +28,42 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->model("ArticleModel");
 		$data['article'] = $this -> articleModel -> get_article();
+		$this->load->view("homepage",$data);
+	}
+	
+	public function breakfast()
+	{
+		$data['article'] = $this -> articleModel ->get_article_breakfast();
+		$this->load->view("homepage",$data);
+	}
+	
+	public function appetizers(){
+		$data['article'] =$this->articleModel ->get_article_appetizers();
+		$this->load->view("homepage",$data);
+	}
+	
+	public function main()
+	{
+		$data['article'] = $this->articleModel->get_article_main();
+		$this->load->view("homepage",$data);
+	}
+
+	public function dessert()
+	{
+		$data['article'] = $this->articleModel->get_article_dessert();
+		$this->load->view("homepage",$data);
+	}
+
+	public function drink()
+	{
+		$data['article'] = $this->articleModel->get_article_drink();
+		$this->load->view("homepage",$data);
+	}
+	
+	public function cake()
+	{
+		$data['article'] = $this->articleModel->get_article_cake();
 		$this->load->view("homepage",$data);
 	}
 	
@@ -49,14 +83,12 @@ class Welcome extends CI_Controller {
 	}
 	public function restaurants()
 	{
-		$this->load->model("RestaurantModel");
 		$data['restaurant'] = $this -> restaurantModel -> get_search();
 		
 		$this->load->view("restaurants",$data);
 	}
 	public function blogs()
 	{		
-		$this->load->model("ArticleModel");
 		$data['blogs'] = $this -> articleModel -> blogs();
 		$this->load->view("blogs",$data);		
 	}
