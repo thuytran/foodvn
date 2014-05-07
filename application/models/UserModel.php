@@ -64,6 +64,27 @@ class UserModel extends CI_Model{
 			$query = $this->db->get('rating')->result_array();
 			return count($query)?$query[0]["point"]:null;
 		}
+		
+		public function follow_friend($data,$iduser1,$iduser2){
+			$sql = "select * from relative where iduser = $iduser1 and iduser_follow = $iduser2";
+			$query = $this->db->query($sql,array($iduser1,$iduser2));
+			if($query!= null & $query->num_rows()==1){
+				echo "<script language=\"javascript\">
+				alert('this user was your friend!');
+				</script>";
+				return null;
+			}
+			else{
+				$this->db->insert("relative",$data);
+				return $this->db->insert_id();		
+			}
+		}
+		
+		public function get_relative($iduser2){
+			$result = $this->db->query("select * from relative where iduser=$iduser2");
+			return $result;
+			
+		}
 
 }
 		
