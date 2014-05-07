@@ -26,6 +26,13 @@ class UserModel extends CI_Model{
 		return $result;
 	}
 	
+		public function select_username($iduser)
+	{
+		$result = $this->db->query("select username from user where iduser=?",array($iduser));
+		return $result;
+		
+	}
+	
 	public function select_activity($iduser)
 	{
 		$result2 = $this->db->query("select * from activity where iduser=?" ,array($iduser));
@@ -81,8 +88,10 @@ class UserModel extends CI_Model{
 		}
 		
 		public function get_relative($iduser2){
-			$result = $this->db->query("select * from relative where iduser=$iduser2");
+			$result = $this->db->query("select * from relative where iduser=?" ,array($iduser2));
 			return $result;
+			$result2 = $this->db->query("select * from user where iduser=?",array($result));
+			return $result2;
 			
 		}
 

@@ -113,9 +113,6 @@ class ArticleModel extends CI_Model{
 			$this->db->select("*");
 			$this->db->from("article");
 			$this->db->like("title_article", $key_search);
-			// $this->db->like("ingredients", $key_search);
-			// $this->db->like("step1_prepare", $key_search);
-			// $this->db->like("step2_making", $key_search);
 			return $this->db->get()->result_array();
 		}
 		return array();

@@ -79,7 +79,8 @@ class Welcome extends CI_Controller {
 	}
 	public function recipes()
 	{
-		$this->load->view('recipes');
+		$data['article']=$this -> articleModel -> get_search();
+		$this->load->view("recipes",$data);
 	}
 	public function restaurants()
 	{

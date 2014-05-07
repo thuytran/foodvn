@@ -401,25 +401,29 @@ class User extends CI_Controller {
 	}
 	
 	public function search_recipe(){
-		$result=$this -> articleModel -> get_search();
-		$article = $result -> result_array();
-		$data =array('article' => $article);
+		$data['article'] = $this -> articleModel -> get_search();
 		$this->load->view('recipes',$data);
+		
 	}
 	
 	public function follow_friend()
 	{
 		$iduser1 = $this->get_current_user_id();
 		$iduser2 = $_GET['iduser'];
-		$data = array('iduser' => $iduser1, 'iduser_follow' => $iduser2);
-		$follow_friend = $this -> userModel -> follow_friend($data,$iduser1,$iduser2); 
+		$username2 = $this -> userModel -> select_username($iduser2)-> result_array();//list array chua rat nhieu user 
+		if($username2 != null && count($username2)){
+			$follower = $username2[0]["username"];
+			$data = array('iduser' => $iduser1, 'iduser_follow' => $iduser2, 'username_follow' => $follower);
+			$follow_friend = $this -> userModel -> follow_friend($data,$iduser1,$iduser2); 
+			$user = $this -> userModel -> select($iduser2) -> result_array();
+			$activity = $this -> userModel -> select_activity($iduser2) -> result_array();
+			$relative = $this -> userModel ->  get_relative($iduser2) -> result_array();
+			$data = array('user' => $user[0],'activity'=>$activity,'relative' => $relative);
+			$this->load->view('friend_page',$data);
 		
-		$user = $this -> userModel -> select($iduser2) -> result_array();
-		$activity = $this -> userModel -> select_activity($iduser2) -> result_array();
-		$relative = $this -> userModel ->  get_relative($iduser2) -> result_array();
-		$data = array('user' => $user[0],'activity'=>$activity,'relative' => $relative);
-		$this->load->view('friend_page',$data);
-		
+		}
+		return;
+
 	}
 	
 	

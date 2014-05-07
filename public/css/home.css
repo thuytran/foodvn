@@ -554,6 +554,11 @@ a.nivo-prevNav {
 	overflow: auto;
 	margin-left: 200px;
 	margin-top: 100px;
+	margin-bottom: 50px;
+}
+
+#friend_of_friend{
+	margin-left: 200px;
 	margin-bottom: 150px;
 }
 

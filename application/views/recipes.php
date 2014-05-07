@@ -35,7 +35,7 @@
 						<?php for($i=0;$i<count($article);$i++){ 
 					$item = $article[$i];
 					?>
-					<a href="http://localhost/foodvn/index.php/user/detail_article/?id_article=<?php echo $item["id_article"] ?>" > <?php echo $item['title_article']; ?> </a>
+					<p><a href="http://localhost/foodvn/index.php/user/detail_article/?id_article=<?php echo $item["id_article"] ?>" > <?php echo $item['title_article']; ?> </a></p>
 					<?php } ?>
 						
 				</div>

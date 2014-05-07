@@ -12,6 +12,7 @@
 		</div>
 		
 		<div id="content_b">
+			<form><input type="button" id="backbtn" value="Click to go back" onClick="history.go(-1);return true;"></form>
 					<h1>About Us</h1>
 					<p>Do you like cooking?</p>
 					<p>Do you want to be a professional cooker?</p>
@@ -20,7 +21,7 @@
 					<p>We hope that all of us can build this website together. </p>
 					<p>Welcome!</p>
 					<img src="http://localhost/foodvn/public/image/about.png" />
-				<form><input type="button" id="backbtn" value="Click to go back" onClick="history.go(-1);return true;"></form>
+				
 		</div>	
 		<div id="footer">
 			<div class="home">

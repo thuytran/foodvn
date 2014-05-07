@@ -18,23 +18,6 @@
 						</form>
 					</div>
 				</div>
-				<ul>
-					<li class="current">
-						<a href="http://localhost/foodvn/index.php">Home</a>
-					</li>
-					<li>
-						<a href="http://localhost/foodvn/index.php/welcome/about">About us</a>
-					</li>
-					<li>
-						<a href="http://localhost/foodvn/index.php/welcome/recipes">Recipes</a>
-					</li>
-					<li>
-						<a href="http://localhost/foodvn/index.php/welcome/restaurants">Restaurants</a>
-					</li>
-					<li>
-						<a href="http://localhost/foodvn/index.php/welcome/blogs">Blogs</a>
-					</li>
-				</ul>
 		</div>	
 		</div>
 		

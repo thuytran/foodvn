@@ -51,7 +51,7 @@
 			<p><b>Friend</b></p>
 			<?php for($i=0;$i<count($relative);$i++){
 							$item = $relative[$i]; ?>
-						<p><?php echo $item["iduser_follow"];?></p>
+						<p><?php echo $item["username_follow"];?></p>
 						<?php } ?>
 		</div>
 			

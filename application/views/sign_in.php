@@ -59,10 +59,10 @@
 								<td><label for="password">Password</label></td>
 								<td><input type="password" id="password" name="password"/></td>
 							</tr>
-							<tr>
+							<!-- <tr>
 								<td></td>
 								<td class="rememberme"><label for="rememberme"><input type="checkbox" id="rememberme" /> Remember me on this computer</label></td>
-							</tr>
+							</tr> -->
 							<tr>
 										<td></td>
 										<td><input type="submit" value="Log in" id="submitbtn"/> </td>
