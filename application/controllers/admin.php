@@ -37,8 +37,11 @@ class Admin extends CI_Controller {
 	}
 	
 	public function admin_page(){
+		$result = $this -> articleModel -> blogs();
+		$blogs = $result -> result_array();
+		$data = array('blogs'=>$blogs);
 		if($this -> isAdmin()){
-			$this -> load -> view('adminpage');
+			$this -> load -> view('adminpage',$data);
 		}
 		else{
 			$this->no_permission();
@@ -55,8 +58,9 @@ class Admin extends CI_Controller {
 		$signature = $this->input->post("signature");
 		if($title==null||$summary==null||$content==null||$signature==null)
 		{
-			$status ="error";
-			$msg = "try again!";
+			echo "<script language=\"javascript\">
+						window.location.href = 'http://localhost/foodvn/index.php/admin/admin_page';
+						alert('You must enter all fields to upload! Try again!');</script>";
 		}
 		if($status!="error")
 		{
@@ -82,17 +86,59 @@ class Admin extends CI_Controller {
 					"file_name"=>$data['file_name']);
 					$fid = $this->ArticleModel->insert($info);
 					if($fid){
-						$status = "Success";
-						$msg = "uploaded";
+							echo "<script language=\"javascript\">
+						window.location.href = 'http://localhost/foodvn/index.php/admin/admin_page';
+						alert('uploaded!');</script>";
 					}
 					else {
-						$status = "error";
-						$msg = "try again!";
+							echo "<script language=\"javascript\">
+						window.location.href = 'http://localhost/foodvn/index.php/admin/admin_page';
+						alert('You must enter all fields to upload! Try again!');</script>";
 					}
 				}
 		}
-		echo json_encode(array('status'=>$status,'msg' => $msg));
+		}
 
-			}			
+	public function delete_blog(){
+		$id = $_GET['id'];
+		if($this -> isAdmin()){
+		$u = $this -> articleModel -> delete_blog($id);
+		echo "<script language=\"javascript\">
+		alert('deleted!');
+		history.back();
+		</script>";
+		}
+	}	
+	
+	public function upload_res(){
+		$region = $this->input->post("region");
+		
+		$name_res = $this->input->post("name_res");
+		$menu = $this->input->post("menu");
+		$address = $this->input->post("address");
+		if($region==null||$name_res==null||$menu==null||$address==null)
+		{
+			echo "<script language=\"javascript\">
+						window.location.href = 'http://localhost/foodvn/index.php/admin/admin_page';
+						alert('You must enter all fields to upload! Try again!');</script>";
+		}
+		else
+		{
+			if($this -> isAdmin()){
+					$this->load->model("ArticleModel");
+					$info = array("region"=>$_POST['region'],
+					"name_res"=>$_POST['name_res'],
+					"menu"=>$_POST['menu'],
+					"address"=>$_POST['address']);
+					$fid = $this->ArticleModel->insert_res($info);
+					if($fid){
+							echo "<script language=\"javascript\">
+						window.location.href = 'http://localhost/foodvn/index.php/admin/admin_page';
+						alert('uploaded!');</script>";
+					}
+			}
+			}
+			}
+			
 }
 		

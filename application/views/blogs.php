@@ -49,8 +49,32 @@
 				<form><input type="button" id="backbtn" value="Click to go back" onClick="history.go(-1);return true;"></form>
 			</li>
 		</ul>	
-				
 		</div>
+		
+			<div style="clear: both"/>
+			<div style="width: 100%; float: left; text-align: center;">
+				<?php
+					// Lấy ra trang hiện tại đang hiển thị
+					$current_page = 1;
+					if(array_key_exists ("page", $_GET)){
+						$current_page = intval($_GET["page"]);
+						if($current_page < 1){
+							$current_page = 1;
+						}
+					}
+					// Tính tổng số trang
+					$total_page = $total/5 + ($total % 5 > 0 ? 1 : 0);
+					for($i = 1; $i <= $total_page; $i++){
+					?>
+						<a style="<?php echo ($i == $current_page ? "" : "border: solid 1px #888"); ?>; padding: 3px; text-decoration: none; display: inline-block" href="?page=<?php echo $i?>"> 
+							<?php echo $i?> 
+						</a>
+					<?php
+					}
+					
+				?> - Tổng số <?php echo $total ?> món		
+			</div>
+		<div style="clear: both"/>
 		
 		<div id="footer">
 			<div class="home">

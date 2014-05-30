@@ -13,8 +13,8 @@
 					</div>
 					<div>
 						<div>
-							<a href="index.php/user/sign_up">My account</a>
-							<a href="index.php/user/sign_in">Sign in</a>
+							<a href="http://localhost/foodvn/index.php/user/sign_up">Sign up</a>
+							<a style="border-right: none !important;" href="http://localhost/foodvn/index.php/user/sign_in">Sign in</a>
 						</div>
 						<form action="#">
 							<input type="text" id="search" maxlength="40" />
@@ -41,7 +41,7 @@
 				</ul>
 		</div>	
 		</div>
-		
+
 		<div id="wrapper">
         <div id="slider-wrapper">
         
@@ -95,8 +95,8 @@
 					fjs.parentNode.insertBefore(js, fjs);
 				}(document, 'script', 'facebook-jssdk'));
 		</script>
-		
-		
+
+
 		<div id="content">
 			<?php for($i=0;$i<count($article);$i++){
 							$item = $article[$i];
@@ -251,6 +251,30 @@
 			
 			<?php } ?>
 		</div>
+		<div style="clear: both"/>
+			<div style="width: 100%; float: left; text-align: center;">
+				<?php
+					// Lấy ra trang hiện tại đang hiển thị
+					$current_page = 1;
+					if(array_key_exists ("page", $_GET)){
+						$current_page = intval($_GET["page"]);
+						if($current_page < 1){
+							$current_page = 1;
+						}
+					}
+					// Tính tổng số trang
+					$total_page = $total/8 + ($total % 8 > 0 ? 1 : 0);
+					for($i = 1; $i <= $total_page; $i++){
+					?>
+						<a style="<?php echo ($i == $current_page ? "" : "border: solid 1px #888"); ?>; padding: 3px; text-decoration: none; display: inline-block" href="?page=<?php echo $i?>"> 
+							<?php echo $i?> 
+						</a>
+					<?php
+					}
+					
+				?> - Tổng số <?php echo $total ?> món		
+			</div>
+		<div style="clear: both"/>
 		<div id="footer">
 			<div class="home">
 				<div>

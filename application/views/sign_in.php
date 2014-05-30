@@ -12,10 +12,10 @@
 						<a href="http://localhost/foodvn/index.php"><img src="http://localhost/foodvn/public/image/logo.png"/></a>
 					</div>
 					<div>
-						<div>
+						<!--<div>
 							<a href="sign_up">My account</a>
 							<a href="sign_in">Sign in</a>
-						</div>
+						</div>-->
 						<form action="#">
 							<input type="text" id="search" maxlength="40" />
 							<input type="submit" value="" id="searchbtn" />

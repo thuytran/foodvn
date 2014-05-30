@@ -33,8 +33,8 @@ class User extends CI_Controller {
 			return null;
 		}
 	}
-	
-	
+
+
 	function get_current_username(){
 		$data = $this -> session -> userdata('session_user');
 		if($data != null){
@@ -44,8 +44,8 @@ class User extends CI_Controller {
 			return null;
 		}
 	}
-	
-	
+
+
 	public function sign_up()
 	{
 		$result = array ('result' => "");
@@ -62,7 +62,7 @@ class User extends CI_Controller {
 			$this -> load -> view("sign_up",$result);
 		}
 		else
-			{
+		{
 			$username = $_POST['username'];
 			$fullname = $_POST['fullname'];
 			$password = $_POST['password'];
@@ -73,147 +73,166 @@ class User extends CI_Controller {
 			$insert_new_user = $this -> userModel ->insert_new_user($user);
 			$result = array ('result'=>"register successfully, go to sign in");
 			$this -> load ->view("sign_up",$result);
-			}
-		
+		}
+
 	}
-	
+
 	public function sign_in()
 	{
 		$result = array ('result' => "");
 		$this -> load -> view("sign_in",$result);
 	}
-	
+
 	public function signin()
 	{
 		$username = $_GET['username'];
 		$password = $_GET['password'];
 		$user = $this -> userModel -> signin($username,$password);
 		if($user!=null)
-			{
-			
-				$this -> session -> set_userdata('session_user',$user);
-				redirect('/user/homepage/','refresh');
-			}
+		{
+			$this -> session -> set_userdata('session_user',$user);
+			redirect('/user/homepage/','refresh');
+		}
 		else
-			{
-				$result = array('result' => "Thông tin đăng nhập không đúng, đăng nhập lại!");
-				$this -> load -> view("sign_in",$result );
-			}
+		{
+			$result = array('result' => "Thông tin đăng nhập không đúng, đăng nhập lại!");
+			$this -> load -> view("sign_in",$result );
+		}
 	}
-	
+
 	public function homepage(){
 		
-		$data_article['article'] = $this -> articleModel -> get_article();
+		// Lấy query parameter truyền lên (ở đây đặt tên là page) để thực hiện phân trang
+		$page =0;
+		if(array_key_exists ("page", $_GET)){
+			$page = intval($_GET["page"]) - 1;
+			if($page < 0){
+				$page = 0;
+			}
+		}
+		// Fix cứng mỗi trang lấy ra chỉ có 8 phần tử
+		$end = 8 * (1+ $page);
+		$start = 8 * $page;
+		
+		// Truyền start với end vào để phân trang
+		// Xem hàm phân trang được viết trong file: ArticleModel.php
+		$article = $this -> articleModel -> get_article_paging($start, $end);
+		
+		// Đếm tổng số bản ghi để hiện thị số trang ở trang .php
+		$total = $this->articleModel->count_article();
+		
 		$iduser = $this -> get_current_user_id();
 		$result=$this -> userModel -> select($iduser);
 		$user = $result -> result_array();
 		if(count($user)==1){
-			$data = array('user'=>$user[0],'article'=> $this->articleModel->get_article());
+			$data = array('user'=>$user[0],'article'=> $article, 'total'=>$total);
 			$this -> load -> view('user_homepage',$data);
 		}
 		else
-			{
-				$this -> load -> view('homepage');
-			}
+		{
+			$data = array('article'=> $article, 'total'=>$total);
+			$this -> load -> view('homepage', $data);
+		}
 	}
-	
+
 	public function userhome_breakfast(){
 		$data_article['article'] = $this -> articleModel -> get_article_breakfast();
 		$iduser = $this -> get_current_user_id();
 		$result=$this -> userModel -> select($iduser);
 		$user = $result -> result_array();
 		if(count($user)==1){
-			$data = array('user'=>$user[0],'article'=> $this->articleModel->get_article_breakfast());
+			$data = array('user'=>$user[0],'article'=> $data_article['article']);
 			$this -> load -> view('user_homepage',$data);
 		}
 		else
-			{
-				$this -> load -> view('homepage');
-			}
+		{
+			$this -> load -> view('homepage');
+		}
 	}
-	
-	
+
 	public function userhome_appetizer(){
 		$data_article['article'] = $this -> articleModel -> get_article_appetizers();
 		$iduser = $this -> get_current_user_id();
 		$result=$this -> userModel -> select($iduser);
 		$user = $result -> result_array();
 		if(count($user)==1){
-			$data = array('user'=>$user[0],'article'=> $this->articleModel->get_article_appetizers());
+			$data = array('user'=>$user[0],'article'=> $data_article['article']);
 			$this -> load -> view('user_homepage',$data);
 		}
 		else
-			{
-				$this -> load -> view('homepage');
-			}
+		{
+			$this -> load -> view('homepage');
+		}
 	}
-	
+
 	public function userhome_main(){
-		$data_article['article'] = $this -> articleModel -> get_article_main();
+		$article = $this -> articleModel -> get_article_main();
+		$total = $this->articleModel->count_article();
 		$iduser = $this -> get_current_user_id();
 		$result=$this -> userModel -> select($iduser);
 		$user = $result -> result_array();
 		if(count($user)==1){
-			$data = array('user'=>$user[0],'article'=> $this->articleModel->get_article_main());
+			$data = array('user'=>$user[0],'article'=> $article, 'total'=>$total);
 			$this -> load -> view('user_homepage',$data);
 		}
 		else
-			{
-				$this -> load -> view('homepage');
-			}
+		{
+			$data = array('article'=> $article, 'total'=>$total);
+			$this -> load -> view('homepage', $data);
+		}
 	}
-	
-		public function userhome_dessert(){
+
+	public function userhome_dessert(){
 		$data_article['article'] = $this -> articleModel -> get_article_dessert();
 		$iduser = $this -> get_current_user_id();
 		$result=$this -> userModel -> select($iduser);
 		$user = $result -> result_array();
 		if(count($user)==1){
-			$data = array('user'=>$user[0],'article'=> $this->articleModel->get_article_dessert());
+			$data = array('user'=>$user[0],'article'=> $data_article['article']);
 			$this -> load -> view('user_homepage',$data);
 		}
 		else
-			{
-				$this -> load -> view('homepage');
-			}
+		{
+			$this -> load -> view('homepage');
+		}
 	}
-	
-		public function userhome_drink(){
+
+	public function userhome_drink(){
 		$data_article['article'] = $this -> articleModel -> get_article_drink();
 		$iduser = $this -> get_current_user_id();
 		$result=$this -> userModel -> select($iduser);
 		$user = $result -> result_array();
 		if(count($user)==1){
-			$data = array('user'=>$user[0],'article'=> $this->articleModel->get_article_drink());
+			$data = array('user'=>$user[0],'article'=>$data_article['article'] );
 			$this -> load -> view('user_homepage',$data);
 		}
 		else
-			{
-				$this -> load -> view('homepage');
-			}
+		{
+			$this -> load -> view('homepage');
+		}
 	}
-	
+
 	public function userhome_cake(){
 		$data_article['article'] = $this -> articleModel -> get_article_cake();
 		$iduser = $this -> get_current_user_id();
 		$result=$this -> userModel -> select($iduser);
 		$user = $result -> result_array();
 		if(count($user)==1){
-			$data = array('user'=>$user[0],'article'=> $this->articleModel->get_article_cake());
+			$data = array('user'=>$user[0],'article'=> $data_article['article'] );
 			$this -> load -> view('user_homepage',$data);
 		}
 		else
-			{
-				$this -> load -> view('homepage');
-			}
+		{
+			$this -> load -> view('homepage');
+		}
 	}
-	
-	
+
+
 	public function logout($value = ''){
 		$this->session->unset_userdata('session_user');
 		redirect("http://localhost/foodvn/index.php","refresh");
 	}
-	
+
 	public function userpage()
 	{
 		$iduser = $this -> get_current_user_id();
@@ -223,7 +242,7 @@ class User extends CI_Controller {
 		$activity = $result2 -> result_array();
 		$result3 = $this -> articleModel -> get_article_by_id($iduser);
 		$list_article_byid = $result3 -> result_array();
-		
+
 		if(count($user)==1){
 		$data = array('user' => $user[0],'activity'=>$activity,'result' => "",'list_article_byid'=>$list_article_byid);
 		$this -> load -> view('userpage',$data);
@@ -257,7 +276,7 @@ class User extends CI_Controller {
 			$this->no_permission();
 		}
 	}
-	
+
 	public function upload_new_recipe(){
 		$id_category = $this->input->post("id_category");
 		$title_article = $this->input->post("title_article");
@@ -271,7 +290,7 @@ class User extends CI_Controller {
 						window.location.href = 'http://localhost/foodvn/index.php/user/userpage';
 						alert('You must enter all fields to upload! Try again!');</script>";
 		}
-		
+
 		else
 			{
 				$config['upload_path'] = '.\upload';
@@ -284,7 +303,7 @@ class User extends CI_Controller {
 						echo "<script language=\"javascript\">
 						window.location.href = 'http://localhost/foodvn/index.php/user/userpage';
 						alert('You did not choose image to upload! Try again!');</script>";
-						
+
 					}
 				else
 					{
@@ -298,7 +317,7 @@ class User extends CI_Controller {
 						"step1_prepare" => $_POST['step1_prepare'],
 						"step2_making" => $_POST['step2_making'],
 						"file_name" => $data['file_name']);
-						 
+
 				       	$date = date('Y/m/d H:i:s');
 						$id_article = $this->articleModel->get_id_article_last()+1;
 						$activity = array("iduser"=>$iduser,
@@ -306,7 +325,7 @@ class User extends CI_Controller {
 						"activity"=>"upload new recipe",
 						"time"=>$date,
 						"id_article"=>$id_article);
-						
+
 						$iduser = $this -> get_current_user_id();
 						$result=$this -> userModel -> select($iduser);
 						$user = $result -> result_array();
@@ -317,8 +336,9 @@ class User extends CI_Controller {
 						redirect('http://localhost/foodvn/index.php/user/userpage', 'refresh'); 
 					}
 				}
-		
+
 		}
+		
 	public function check_user(){
 		//khi nguoi dung nhan vao link nguoi dung khac kiem tra xem nguoi dung nay da dang nhap chua neu chua thi tra ve trang dang ky neu roi thi tra ve trang ca nhan nguoi dung
 		if($this->my_usession->logged_in){
@@ -334,18 +354,18 @@ class User extends CI_Controller {
 				$this->userpage(); // neu la user click vao chinh ten minh thi load trang ca nhan cua chinh nguoi do
 			}
 			}
-		
+
 		else{
 			$result = array('result' => "You need to sign in before viewing this page!");
 			$this -> load -> view("sign_in",$result );
 		}
 	}
-	
+
 	// public function profile_user(){
 		// //ham thuc hien khi nguoi dung muon xem trang ca nhan cua nguoi dung khac
 // 		
 	// }
-	
+
 	public function detail_article()
 	{
 		$id_article = $_GET["id_article"];
@@ -354,7 +374,7 @@ class User extends CI_Controller {
 		$data["article"] = count($article) > 0 ? $article[0] : null;
 		$this->load->view('detail_recipes',$data);
 	}
-	
+
 	public function rating()
 	{
 		if($this->my_usession->logged_in){
@@ -364,7 +384,7 @@ class User extends CI_Controller {
 		$id_article = $this->input->post('id_article');
 		$iduser = $this -> get_current_user_id();
 		$data = array('iduser' => $iduser, 'id_article' => $id_article, 'point' => $point );
-		
+
 		$date = date('Y/m/d H:i:s');
 		$username = $this -> get_current_username();
 		$activity = array("iduser"=>$iduser,
@@ -372,7 +392,7 @@ class User extends CI_Controller {
 						"activity"=>"rate a recipe",
 						"time"=>$date,
 						"id_article"=>$id_article);
-						
+
 		$act = $this -> articleModel -> insert_activity($activity); 
 		$rating = $this -> userModel -> rating($data,$iduser,$id_article);
 		echo "<script language=\"javascript\">
@@ -386,7 +406,7 @@ class User extends CI_Controller {
 		history.back();
 		</script>";
 		}
-		
+
 	}
 
 	public function delete_article()
@@ -397,15 +417,15 @@ class User extends CI_Controller {
 		alert('deleted!');
 		history.back();
 		</script>";
-		
+
 	}
-	
+
 	public function search_recipe(){
 		$data['article'] = $this -> articleModel -> get_search();
 		$this->load->view('recipes',$data);
-		
+
 	}
-	
+
 	public function follow_friend()
 	{
 		$iduser1 = $this->get_current_user_id();
@@ -418,16 +438,14 @@ class User extends CI_Controller {
 			$user = $this -> userModel -> select($iduser2) -> result_array();
 			$activity = $this -> userModel -> select_activity($iduser2) -> result_array();
 			$relative = $this -> userModel ->  get_relative($iduser2) -> result_array();
-			$data = array('user' => $user[0],'activity'=>$activity,'relative' => $relative);
+			$list_article_byid = $this -> articleModel -> get_article_by_id($iduser2) -> result_array();			
+			$data = array('user' => $user[0],'activity'=>$activity,'relative' => $relative,'list_article_byid'=>$list_article_byid);
 			$this->load->view('friend_page',$data);
-		
+
 		}
 		return;
 
 	}
-	
-	
-}
 
-/* End of file welcome.php */
-/* Location: ./application/controllers/welcome.php */
+
+}

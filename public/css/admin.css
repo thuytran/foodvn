@@ -1,9 +1,8 @@
 
 body{
-	font-family: "Arial Black";
+	
 	font-size: 16px;
 	height: auto;
-	background: url(http://localhost/foodvn/public/image/bg_admin.jpg) no-repeat center ;
 }
 #login{
 	margin-left: 550px;
@@ -22,5 +21,26 @@ body{
 
 #upload_file
 {
-	margin-left: 550px;
+	margin-left: 50px;
+	float: left;
+}
+#list_uploaded{
+	margin-left: 100px;
+	font-size: 16px;
+	font-family: "Comic Sans MS";
+	color: #660F66;
+	width: 400px;;
+	height: 200px;
+	border: dotted;
+	overflow: auto;
+	}
+#list_uploaded a{
+	color: #660F66;
+}
+
+#upload_res{
+	
+	margin-right: 100px;
+	margin-top: 50px;
+	float: left;
 }

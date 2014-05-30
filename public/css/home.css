@@ -2,8 +2,8 @@ body {
 	background-image: url(http://localhost/foodvn/public/image/bg.png);
 	background-repeat: repeat-y;
 	color: #D75726;
-	font-family: "Times New Roman", Times, serif;
-	font-size: 16px;
+	font-family: "helvetica", sans-serif;
+	font-size: 13px;
 	margin: 0;
 	min-width: 960px;
 	padding: 0;
@@ -561,6 +561,18 @@ a.nivo-prevNav {
 	margin-left: 200px;
 	margin-bottom: 150px;
 }
+#abc{
+	float: left;
+}
+#articles_this_user_upload{
+	float: right;
+	margin-left: 100px;
+	margin-top: 100px;
+	width: 445px;
+	height: 300px;
+	overflow: auto;
+}
+
 
 #list_uploaded{
 	margin-top: 100px;

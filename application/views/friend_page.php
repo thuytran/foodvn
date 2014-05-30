@@ -13,7 +13,7 @@
 		</div>
 		
 		<div>
-			
+		<div id="abc">	
 		<div id="profile_user">
 			<table id="tb_profile_user">
 				<tr>
@@ -48,13 +48,34 @@
 		</div>
 		
 		<div id="friend_of_friend">
-			<p><b>Friend</b></p>
+			<p><b>Friend follow this user</b></p>
 			<?php for($i=0;$i<count($relative);$i++){
 							$item = $relative[$i]; ?>
-						<p><?php echo $item["username_follow"];?></p>
+						<p><b> <a href="http://localhost/foodvn/index.php/user/check_user/?iduser=<?php echo $item["iduser_follow"] ?>" id="url_user"><?php echo $item['username_follow']; ?></a>    </b></p>
+						
 						<?php } ?>
 		</div>
+		
+		</div>
+		<div id="articles_this_user_upload">
+			<table>
+							<tr>
+								<td>
+									<b>The recipes this user have posted</b>
+								</td>
+							</tr>
+								<?php for($i=0;$i<count($list_article_byid);$i++){
+									$item = $list_article_byid[$i]; ?>
+									<tr>
+										<td>
+											<a href="http://localhost/foodvn/index.php/user/detail_article/?id_article=<?php echo $item["id_article"] ?>" > <?php echo $item['title_article']; ?> </a>  
+										</td>
+									</tr>
+								<?php } ?>
+			</table>
 			
+		</div>
+		
 		</div>
 		
 		
