@@ -61,12 +61,9 @@
 					<p>Choose type</p>
 								
 								<select name="region" id="region">
-									<option value="hanoi">Ha Noi</option>
-									<option value="hcm">Ho Chi Minh</option>
+									<option value="hanoi">Hà Nội</option>
+									<option value="hcm">Hồ Chí Minh</option>
 									<option value="danang">Đà Nẵng</option>
-									<option value="4">Dessert</option>
-									<option value="5">Drink</option>
-									<option value="6">Cake</option>
 								</select>
 					
 					<p>
@@ -82,8 +79,46 @@
 						<input type="submit" value="submit" name="submit" id="submit"  />
 					</p>
 				</form>
-			</div>
+				</div>
+				
+				<div id="look_res">
+					<form method="post" action="http://localhost/foodvn/index.php/admin/search_res" >
+					<input type="button" id="btnadd" value="Search Restaurant"/>
+					<p>
+						<input type="text" name="key_search" placeholder="search..." />
+					</p>
+					<p>
+						<input type="submit" value="search" />
+					</p>
+					</form>
+				</div>
+				
 			
+
+			
+			
+		</div>
+		<div id="result_search">
+			<table>
+				
+						<?php for($i=0;$i<count($restaurant);$i++){ 
+						$item = $restaurant[$i]; ?>
+					<tr>
+					<td>
+					<h4> <?php echo $item['name_res']; ?> </h4>
+					<h4> <?php echo $item['address']; ?> </h4>
+					</td>
+					<td>
+						<a href="http://localhost/foodvn/index.php/admin/delete_res/?id_res=<?php echo $item['id_res']?>"> delete </a>
+					</td>
+					</tr>
+					<?php } ?>
+					
+					
+				
+					
+			</table>
+					
 		</div>
 		
 	</body>

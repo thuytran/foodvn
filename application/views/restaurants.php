@@ -41,7 +41,8 @@
 					$item = $restaurant[$i];
 					?>
 					<h2> <?php echo $item['name_res']; ?> </h2>
-					<i><?php echo $item['address'];  ?></i>
+					<h3>menu: <?php echo $item['menu'];?></h3>
+					<i>address: <?php echo $item['address'];  ?></i>
 					<?php } ?>
 						
 				</div>

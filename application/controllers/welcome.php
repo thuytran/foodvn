@@ -106,7 +106,6 @@ class Welcome extends CI_Controller {
 	public function restaurants()
 	{
 		$data['restaurant'] = $this -> restaurantModel -> get_search();
-
 		$this->load->view("restaurants",$data);
 	}
 	public function blogs()

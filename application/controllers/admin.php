@@ -5,6 +5,7 @@ class Admin extends CI_Controller {
 		parent::__construct();
 		$this -> load -> model('adminModel', '', TRUE);
 		$this -> load -> model('articleModel', '', TRUE);
+				$this -> load -> model('restaurantModel', '', TRUE);
 		$this -> load -> library('session');
 		$this -> load -> helper('url');
 		$this -> load -> helper('form');
@@ -40,6 +41,7 @@ class Admin extends CI_Controller {
 		$result = $this -> articleModel -> blogs();
 		$blogs = $result -> result_array();
 		$data = array('blogs'=>$blogs);
+		$data['restaurant'] = $this -> restaurantModel -> get_name();
 		if($this -> isAdmin()){
 			$this -> load -> view('adminpage',$data);
 		}
@@ -112,7 +114,6 @@ class Admin extends CI_Controller {
 	
 	public function upload_res(){
 		$region = $this->input->post("region");
-		
 		$name_res = $this->input->post("name_res");
 		$menu = $this->input->post("menu");
 		$address = $this->input->post("address");
@@ -139,6 +140,28 @@ class Admin extends CI_Controller {
 			}
 			}
 			}
+	
+	public function search_res()
+	{
+		
+		$result = $this -> articleModel -> blogs();
+		$blogs = $result -> result_array();
+		$data = array('blogs'=>$blogs);
+		$data['restaurant'] = $this -> restaurantModel -> get_name();
+		$this -> load -> view('adminpage',$data);
+	}
+	
+	public function delete_res()
+	{
+		$id_res = $_GET['id_res'];
+		if($this -> isAdmin()){
+		$u = $this -> restaurantModel -> delete_res($id_res);
+		echo "<script language=\"javascript\">
+		alert('deleted!');
+		history.back();
+		</script>";
+		}
+	}
 			
 }
 		
