@@ -8,6 +8,30 @@
 	</head>
 	<body>
 		<div >
+			
+				<div id="list_uploaded">
+				<table>
+					<tr>
+						<td>
+						<p>
+							<b> blogs you have posted </b>
+						</p>
+						</td>
+					</tr>
+					<?php for($i=0;$i<count($blogs);$i++){
+					$item = $blogs[$i]; ?>
+					<tr>
+					<td>
+					<a href="http://localhost/foodvn/index.php/welcome/detail/?id=<?php echo $item["id"]  ?>" > <?php echo $item['title']; ?> </a>
+					</td>
+
+					<td id="delete"><a href="http://localhost/foodvn/index.php/admin/delete_blog/?id=<?php echo $item["id"] ?>"> delete </a></td>
+					</tr>
+					<?php }
+					?>
+				</table>
+			</div>
+			
 			<div>
 			<form name="upload_file" method="post" action="http://localhost/foodvn/index.php/admin/upload_file" id="upload_file" enctype="multipart/form-data">
 				<input type="button" id="btnadd" value="Add news in Blogs"/>
@@ -32,28 +56,7 @@
 			</form>
 			</div>
 			
-			<div id="list_uploaded">
-				<table>
-					<tr>
-						<td>
-						<p>
-							<b> blogs you have posted </b>
-						</p>
-						</td>
-					</tr>
-					<?php for($i=0;$i<count($blogs);$i++){
-					$item = $blogs[$i]; ?>
-					<tr>
-					<td>
-					<a href="http://localhost/foodvn/index.php/welcome/detail/?id=<?php echo $item["id"]  ?>" > <?php echo $item['title']; ?> </a>
-					</td>
-
-					<td id="delete"><a href="http://localhost/foodvn/index.php/admin/delete_blog/?id=<?php echo $item["id"] ?>"> delete </a></td>
-					</tr>
-					<?php }
-					?>
-				</table>
-			</div>
+		
 						
 				<div id="upload_res">
 				<form name="upload_res" method="post" action="http://localhost/foodvn/index.php/admin/upload_res" id="upload_res" enctype="multipart/form-data">
@@ -85,24 +88,17 @@
 					<form method="post" action="http://localhost/foodvn/index.php/admin/search_res" >
 					<input type="button" id="btnadd" value="Search Restaurant"/>
 					<p>
-						<input type="text" name="key_search" placeholder="search..." />
-					</p>
-					<p>
-						<input type="submit" value="search" />
+						<input type="search" name="key_search" placeholder="search..." />
 					</p>
 					</form>
 				</div>
-				
 			
 
-			
-			
-		</div>
-		<div id="result_search">
+		<div id="result_search_res">
 			<table>
 				
-						<?php for($i=0;$i<count($restaurant);$i++){ 
-						$item = $restaurant[$i]; ?>
+					<?php for($i=0;$i<count($restaurant);$i++){ 
+					$item = $restaurant[$i]; ?>
 					<tr>
 					<td>
 					<h4> <?php echo $item['name_res']; ?> </h4>
@@ -113,13 +109,38 @@
 					</td>
 					</tr>
 					<?php } ?>
-					
-					
-				
-					
 			</table>
 					
 		</div>
 		
+		<div id="search_user">
+			<form method="post" action="http://localhost/foodvn/index.php/admin/search_user">
+				<input type="button" id="btnadd" value="Search User"/>
+					<p>
+						<input type="search" name="key_search" placeholder="user name..." />
+					</p>
+			</form>
+		</div>
+		
+		<div id="result_user">
+			<table>
+				
+					<?php for($i=0;$i<count($user);$i++){ 
+					$item = $user[$i]; ?>
+					<tr>
+					<td>
+					<h4> <?php echo $item['username']; ?> </h4>
+					</td>
+					<td>
+						<a href="http://localhost/foodvn/index.php/admin/delete_user/?iduser=<?php echo $item['iduser']?>"> delete </a>
+					</td>
+					</tr>
+					<?php } ?>
+			</table>	
+		</div>
+		
+		
+		
+	</div>
 	</body>
 </html>

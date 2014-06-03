@@ -5,7 +5,8 @@ class Admin extends CI_Controller {
 		parent::__construct();
 		$this -> load -> model('adminModel', '', TRUE);
 		$this -> load -> model('articleModel', '', TRUE);
-				$this -> load -> model('restaurantModel', '', TRUE);
+		$this -> load -> model('restaurantModel', '', TRUE);
+		$this -> load -> model('userModel', '', TRUE);
 		$this -> load -> library('session');
 		$this -> load -> helper('url');
 		$this -> load -> helper('form');
@@ -42,6 +43,7 @@ class Admin extends CI_Controller {
 		$blogs = $result -> result_array();
 		$data = array('blogs'=>$blogs);
 		$data['restaurant'] = $this -> restaurantModel -> get_name();
+		$data['user'] = $this -> userModel -> get_user();
 		if($this -> isAdmin()){
 			$this -> load -> view('adminpage',$data);
 		}
@@ -136,9 +138,9 @@ class Admin extends CI_Controller {
 							echo "<script language=\"javascript\">
 						window.location.href = 'http://localhost/foodvn/index.php/admin/admin_page';
 						alert('uploaded!');</script>";
+							}
 					}
-			}
-			}
+				}
 			}
 	
 	public function search_res()
@@ -148,6 +150,7 @@ class Admin extends CI_Controller {
 		$blogs = $result -> result_array();
 		$data = array('blogs'=>$blogs);
 		$data['restaurant'] = $this -> restaurantModel -> get_name();
+		$data['user'] = $this -> userModel -> get_user();
 		$this -> load -> view('adminpage',$data);
 	}
 	
@@ -156,6 +159,28 @@ class Admin extends CI_Controller {
 		$id_res = $_GET['id_res'];
 		if($this -> isAdmin()){
 		$u = $this -> restaurantModel -> delete_res($id_res);
+		echo "<script language=\"javascript\">
+		alert('deleted!');
+		history.back();
+		</script>";
+		}
+	}
+	
+	public function search_user()
+	{
+		$result = $this -> articleModel -> blogs();
+		$blogs = $result -> result_array();
+		$data = array('blogs'=>$blogs);
+		$data['restaurant'] = $this -> restaurantModel -> get_name();
+		$data['user'] = $this -> userModel -> get_user();
+		$this -> load -> view('adminpage',$data);
+	}
+
+	public function delete_user()
+	{
+		$iduser = $_GET['iduser'];
+		if($this->isAdmin()){
+		$u = $this -> userModel -> delete_user($iduser);
 		echo "<script language=\"javascript\">
 		alert('deleted!');
 		history.back();

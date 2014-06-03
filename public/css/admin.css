@@ -22,11 +22,13 @@ body{
 
 #upload_file
 {
+	margin-top: 100px;
 	margin-left: 50px;
+	width: 200px;
 	float: left;
 }
 #list_uploaded{
-	margin-left: 100px;
+	margin-left: 400px;
 	font-size: 14px;
 	font-family: "Comic Sans MS";
 	color: #660F66;
@@ -41,24 +43,37 @@ body{
 
 #upload_res{
 	
-	margin-right: 100px;
+	margin-left: 50px;
 	margin-top: 50px;
 	float: left;
-	width: 100px;
+	width: 200px;
 }
 #look_res{
 	float: left;
 	margin-top: 100px;
-	margin-left: 0px;
+	margin-left: 150px;
+	width: 70px;
 }
 
-#result_search{
+#result_search_res{
 	font-size: 14px;
 	float: left;
-	margin-left: 20px;
-	margin-top: 100px;
+	margin-top: 200px;
 	color: #660F66;
-	height: 100px;
-	width: 250px;
+	height: 200px;
+	width: 150px;
 	overflow: auto;
+}
+
+#search_user{
+	font-size: 14px;
+	float: right;
+	margin-right: 50px;
+	margin-top: 100px;
+}
+#result_user{
+	font-size: 14px;
+	float: right;
+	margin-top: 20px;
+	margin-right: 50px;
 }

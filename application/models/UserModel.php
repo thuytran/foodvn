@@ -1,5 +1,6 @@
 <?php
 class UserModel extends CI_Model{
+	protected $_table="user";
 	public function __construct(){
 		parent::__construct();
 	}
@@ -93,6 +94,23 @@ class UserModel extends CI_Model{
 			$result2 = $this->db->query("select * from user where iduser=?",array($result));
 			return $result2;
 
+		}
+		
+		public function get_user(){
+			$key_search = $this->input->post('key_search');
+			if($key_search){
+				$this->db->select("*");
+				$this->db->from("user");
+				$this->db->like("username",$key_search);
+				return $this->db->get()->result_array();
+			}
+			return array();
+		}
+		
+		public function delete_user($iduser){
+			$this->db->where("iduser",$iduser);
+			$this->db->delete($this->_table);
+			return TRUE;
 		}
 
 }
