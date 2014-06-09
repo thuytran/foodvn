@@ -54,8 +54,10 @@ class User extends CI_Controller {
 
 
 	public function register(){
+		$username_ex = $_POST['username'];
+		$rs = $this->userModel->check_exist_user($username_ex);
+		if($rs==0){
 		$iduser = $this -> get_current_user_id();
-		$this -> load -> model('userModel','',TRUE);
 		if($_POST['username']==null || $_POST['fullname']==null || $_POST['password']==null || $_POST['password_2'] != $_POST['password'] || strlen($_POST['password']<8))
 		{
 			$result = array('result'=>"Something are wrong or missing, try again!");
@@ -74,7 +76,11 @@ class User extends CI_Controller {
 			$result = array ('result'=>"register successfully, go to sign in");
 			$this -> load ->view("sign_up",$result);
 		}
-
+		}
+		else{
+			$result = array('result'=>"this username is exist!");
+			$this -> load -> view("sign_up",$result);
+		}
 	}
 
 	public function sign_in()
@@ -242,9 +248,11 @@ class User extends CI_Controller {
 		$activity = $result2 -> result_array();
 		$result3 = $this -> articleModel -> get_article_by_id($iduser);
 		$list_article_byid = $result3 -> result_array();
+		$result4 = $this -> userModel -> select_name_user_follow($iduser);
+		$relative = $result4 -> result_array();
 
 		if(count($user)==1){
-		$data = array('user' => $user[0],'activity'=>$activity,'result' => "",'list_article_byid'=>$list_article_byid);
+		$data = array('user' => $user[0],'activity'=>$activity,'result' => "",'list_article_byid'=>$list_article_byid,'relative'=>$relative);
 		$this -> load -> view('userpage',$data);
 		}
 		else{
@@ -273,7 +281,9 @@ class User extends CI_Controller {
 			$this->userpage();
 		}
 		else{
-			$this->no_permission();
+				echo "<script language=\"javascript\">
+						window.location.href = 'http://localhost/foodvn/index.php/user/userpage';
+						alert('Failed! Try again!');</script>";
 		}
 	}
 
@@ -346,8 +356,17 @@ class User extends CI_Controller {
 		$user = $this -> userModel -> select($iduser) -> result_array();
 		$data["user"] = count($user) > 0 ? $user[0] : null;
 		$iduser_current = $this -> get_current_user_id(); // lay id user dang dang nhap
-		if($iduser!=$iduser_current){
-		$this->load->view('profile_user',$data); // neu la user khac yeu cau xem trang ca nhan cua nguoi su dung thi tra ve trang cua nguoi do
+		$is_follower = $this -> userModel -> check_follow($iduser_current, $iduser);	
+		if($is_follower){
+			echo "da follow";
+		}
+		else{
+			echo "chua follow";
+		}
+		
+		if(($iduser!=$iduser_current)){
+			$this->load->view('profile_user',$data); // neu la user khac yeu cau xem trang ca nhan cua nguoi su dung thi tra ve trang cua nguoi do
+			
 		}
 		else
 			{

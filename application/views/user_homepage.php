@@ -273,7 +273,7 @@
 					<?php
 					}
 					
-				?> - Tổng số <?php echo $total ?> món		
+				?> - /<?php echo $total ?> 	
 			</div>
 		<div style="clear: both"/>
 		<div id="footer">

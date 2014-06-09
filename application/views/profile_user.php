@@ -15,7 +15,7 @@
 		<div>
 			
 		<div id="profile_user">
-			<table id="tb_profile_user">
+			<table id="tb_pf_new_usr">
 				
 				<tr>
 					<td><h3><p>About: <b> <?php echo $user["username"]; ?> </b></p></h3></td>

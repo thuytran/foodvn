@@ -125,13 +125,17 @@
 							</table>
 						</div>
 						
+						
+						<div id="friend_followed">
+							<p><b>Friend you followed</b></p>
+							<?php for($i=0;$i<count($relative);$i++){
+							$item = $relative[$i]; ?>
+						<p><b> <a href="http://localhost/foodvn/index.php/user/check_user/?iduser=<?php echo $item["iduser_follow"] ?>" id="url_user"><?php echo $item['username_follow']; ?></a> </b></p>
+						<?php } ?>
 						</div>
 						
+						</div>
 						
-						
-				
-				
-			
 			
 		</div> <!-- dong the content -->
 		

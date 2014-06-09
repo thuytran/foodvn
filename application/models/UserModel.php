@@ -20,6 +20,20 @@ class UserModel extends CI_Model{
 		}
 		return null;
 	}
+	
+	public function check_exist_user($username_ex)
+	{
+		$this->db->where('username',$username_ex);
+    	$query = $this->db->get('user');
+    	if ($query->num_rows() > 0)
+    	{
+        return 1;
+   		}
+    	else
+    	{
+        return 0;
+    	}
+	}
 
 	public function select($iduser)
 	{
@@ -36,14 +50,27 @@ class UserModel extends CI_Model{
 
 	public function select_activity($iduser)
 	{
-		$result2 = $this->db->query("select * from activity where iduser=?" ,array($iduser));
-		return $result2;
+		$result = $this->db->query("select * from activity where iduser=?" ,array($iduser));
+		return $result;
 
 		}
+	public function select_name_user_follow($iduser){
+		$result = $this->db->query("select * from relative where iduser=?",array($iduser));
+		return $result;
+	}
+	
+	public function select_id_user_follow($iduser_current){
+		$result = $this->db->query('SELECT iduser_follow FROM relative WHERE iduser = ?',array($iduser_current)); 
+		return $result; 
+	}
+	
+	public function check_follow($iduser_current, $target_user_id){
+		$result = $this->db->query("SELECT * FROM `relative` WHERE iduser = ? AND iduser_follow = ?", array($iduser_current,$target_user_id)); 
+		return $result->num_rows() == 1; 
+	}
 
-		public function update($iduser,$user)
-		{
-			$this->db->where('iduser',$iduser);
+	public function update($iduser,$user) {
+		$this->db->where('iduser',$iduser);
 			$result = $this->db->update("user" ,$user);
 			return $result;
 		}
@@ -108,8 +135,10 @@ class UserModel extends CI_Model{
 		}
 		
 		public function delete_user($iduser){
-			$this->db->where("iduser",$iduser);
-			$this->db->delete($this->_table);
+			
+			$this->db->delete('user', array('iduser' => $iduser));
+			$this->db->delete('article', array('iduser' => $iduser));
+			$this->db->delete('relative', array('iduser' => $iduser));
 			return TRUE;
 		}
 

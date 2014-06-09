@@ -3,7 +3,7 @@ body {
 	background-repeat: repeat-y;
 	color: #D75726;
 	font-family: "helvetica", sans-serif;
-	font-size: 13px;
+	font-size: 15px;
 	margin: 0;
 	min-width: 960px;
 	padding: 0;
@@ -507,10 +507,12 @@ a.nivo-prevNav {
 
 
 #tb_profile_user{
-	border: double;
-	margin-left: 200px;
-	margin-top: 100px;
-	margin-bottom: 150px;
+	float: left;
+	border: groove;
+	margin-left: 50px;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	width: 400px;
 }
 .search_res{
  	margin-left: 250px;
@@ -548,36 +550,35 @@ a.nivo-prevNav {
 	overflow: auto;
 }
 
-#friend_activity{
-	width: 445px;
-	height: 200px;
+#articles_this_user_upload{
+	float: right;
+	margin-top: 50px;
+	width: 400px;
+	height: 300px;
 	overflow: auto;
-	margin-left: 200px;
-	margin-top: 100px;
-	margin-bottom: 50px;
+}
+#articles_this_user_upload a{
+	text-decoration: none;
+	color: #660F66;
 }
 
 #friend_of_friend{
-	margin-left: 200px;
-	margin-bottom: 150px;
+	float: right;
+	margin-top: 50px;
+	width: 400px;
+	height: 300px;
+	
 }
 #abc{
 	float: left;
 }
-#articles_this_user_upload{
-	float: right;
-	margin-left: 100px;
-	margin-top: 100px;
-	width: 445px;
-	height: 300px;
-	overflow: auto;
-}
+
 
 
 #list_uploaded{
-	margin-top: 100px;
+	margin-top: 50px;
 	width: 445px;
-	height: 300px;
+	height: 200px;
 	overflow: auto;
 }
 
@@ -588,6 +589,15 @@ a.nivo-prevNav {
 #list_uploaded a{
 	text-decoration: blink;
 	color: #D75726;
+}
+
+#friend_activity{
+	float: left;
+	margin-top: 50px;
+	margin-left: 50px;
+	width: 400px;
+	height: 200px;
+	overflow: auto;
 }
 
 #delete a{
@@ -610,3 +620,20 @@ a.nivo-prevNav {
 	width: 90px;
 	margin-bottom: 50px;
 }
+
+#friend_followed{
+
+	margin-top: 50px;
+	margin-right: 40px;
+	width: 400px;
+	height: 200px;
+	overflow: auto;
+}
+#tb_pf_new_usr{
+	border: groove;
+	width: 400px;
+	margin-top: 50px;
+	margin-left: 400px;
+	margin-bottom: 100px;
+}
+
