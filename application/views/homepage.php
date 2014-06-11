@@ -12,7 +12,7 @@
 						<a href="http://localhost/foodvn/index.php"><img src="http://localhost/foodvn/public/image/logo.png"/></a>
 					</div>
 					<div>
-						<div>
+						<div id="account">
 							<a href="http://localhost/foodvn/index.php/user/sign_up">Sign up</a>
 							<a style="border-right: none !important;" href="http://localhost/foodvn/index.php/user/sign_in">Sign in</a>
 						</div>

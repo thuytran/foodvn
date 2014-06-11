@@ -356,16 +356,19 @@ class User extends CI_Controller {
 		$user = $this -> userModel -> select($iduser) -> result_array();
 		$data["user"] = count($user) > 0 ? $user[0] : null;
 		$iduser_current = $this -> get_current_user_id(); // lay id user dang dang nhap
-		$is_follower = $this -> userModel -> check_follow($iduser_current, $iduser);	
-		if($is_follower){
-			echo "da follow";
-		}
-		else{
-			echo "chua follow";
-		}
-		
+		$is_follower = $this -> userModel -> check_follow($iduser_current, $iduser);		
 		if(($iduser!=$iduser_current)){
-			$this->load->view('profile_user',$data); // neu la user khac yeu cau xem trang ca nhan cua nguoi su dung thi tra ve trang cua nguoi do
+			if($is_follower){
+				$user = $this -> userModel -> select($iduser) -> result_array();
+				$activity = $this -> userModel -> select_activity($iduser) -> result_array();
+				$relative = $this -> userModel ->  get_relative($iduser) -> result_array();
+				$list_article_byid = $this -> articleModel -> get_article_by_id($iduser) -> result_array();			
+				$data1 = array('user' => $user[0],'activity'=>$activity,'relative' => $relative,'list_article_byid'=>$list_article_byid);
+				$this->load->view('friend_page',$data1);
+			}
+			else{
+				$this->load->view('profile_user',$data); // neu la user khac yeu cau xem trang ca nhan cua nguoi su dung thi tra ve trang cua nguoi do
+			}
 			
 		}
 		else
