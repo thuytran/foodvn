@@ -41,7 +41,7 @@ class Welcome extends CI_Controller {
 		$start = 8 * $page;
 		
 		// Truyền start với end vào để phân trang
-		// Xem hàm phân trang được viết trong file: ArticleModel.php
+		//hàm phân trang trong ArticleModel
 		$article = $this -> articleModel -> get_article_paging($start, $end);
 		
 		// Đếm tổng số bản ghi để hiện thị số trang ở trang .php
@@ -55,36 +55,107 @@ class Welcome extends CI_Controller {
 
 	public function breakfast()
 	{
-		$data['article'] = $this -> articleModel ->get_article_breakfast();
+		$page =0;
+		if(array_key_exists ("page", $_GET)){
+			$page = intval($_GET["page"]) - 1;
+			if($page < 0){
+				$page = 0;
+			}
+		}
+		$end = 8 * (1+ $page);
+		$start = 8 * $page;
+		$article = $this -> articleModel -> get_breakfast_paging($start,$end);
+		$total = $this->articleModel->count_breakfast();
+		$data['article'] = $article;
+		$data['total'] = $total;
 		$this->load->view("homepage",$data);
 	}
-
 	public function appetizers(){
-		$data['article'] =$this->articleModel ->get_article_appetizers();
+		$page =0;
+		if(array_key_exists ("page", $_GET)){
+			$page = intval($_GET["page"]) - 1;
+			if($page < 0){
+				$page = 0;
+			}
+		}
+		$end = 8 * (1+ $page);
+		$start = 8 * $page;
+		$article = $this -> articleModel -> get_appetizers_paging($start,$end);
+		$total = $this->articleModel->count_appetizers();
+		$data['article'] = $article;
+		$data['total'] = $total;
 		$this->load->view("homepage",$data);
 	}
 
 	public function main()
 	{
-		$data['article'] = $this->articleModel->get_article_main();
+		$page =0;
+		if(array_key_exists ("page", $_GET)){
+			$page = intval($_GET["page"]) - 1;
+			if($page < 0){
+				$page = 0;
+			}
+		}
+		$end = 8 * (1+ $page);
+		$start = 8 * $page;
+		$article = $this -> articleModel -> get_main_paging($start,$end);
+		$total = $this->articleModel->count_main();
+		$data['article'] = $article;
+		$data['total'] = $total;
 		$this->load->view("homepage",$data);
 	}
 
 	public function dessert()
 	{
-		$data['article'] = $this->articleModel->get_article_dessert();
+		$page =0;
+		if(array_key_exists ("page", $_GET)){
+			$page = intval($_GET["page"]) - 1;
+			if($page < 0){
+				$page = 0;
+			}
+		}
+		$end = 8 * (1+ $page);
+		$start = 8 * $page;
+		$article = $this -> articleModel -> get_dessert_paging($start,$end);
+		$total = $this->articleModel->count_dessert();
+		$data['article'] = $article;
+		$data['total'] = $total;
 		$this->load->view("homepage",$data);
 	}
 
 	public function drink()
 	{
-		$data['article'] = $this->articleModel->get_article_drink();
+		$page =0;
+		if(array_key_exists ("page", $_GET)){
+			$page = intval($_GET["page"]) - 1;
+			if($page < 0){
+				$page = 0;
+			}
+		}
+		$end = 8 * (1+ $page);
+		$start = 8 * $page;
+		$article = $this -> articleModel -> get_drink_paging($start,$end);
+		$total = $this->articleModel->count_drink();
+		$data['article'] = $article;
+		$data['total'] = $total;
 		$this->load->view("homepage",$data);
 	}
 
 	public function cake()
 	{
-		$data['article'] = $this->articleModel->get_article_cake();
+		$page =0;
+		if(array_key_exists ("page", $_GET)){
+			$page = intval($_GET["page"]) - 1;
+			if($page < 0){
+				$page = 0;
+			}
+		}
+		$end = 8 * (1+ $page);
+		$start = 8 * $page;
+		$article = $this -> articleModel -> get_cake_paging($start,$end);
+		$total = $this->articleModel->count_cake();
+		$data['article'] = $article;
+		$data['total'] = $total;
 		$this->load->view("homepage",$data);
 	}
 

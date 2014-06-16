@@ -132,10 +132,10 @@ class User extends CI_Controller {
 		$start = 8 * $page;
 		
 		// Truyền start với end vào để phân trang
-		// Xem hàm phân trang được viết trong file: ArticleModel.php
+		//  hàm phân trang trong ArticleModel.php
 		$article = $this -> articleModel -> get_article_paging($start, $end);
 		
-		// Đếm tổng số bản ghi để hiện thị số trang ở trang .php
+		// Đếm tổng số bản ghi để hiện thị số trang ở trang 
 		$total = $this->articleModel->count_article();
 		
 		$iduser = $this -> get_current_user_id();
@@ -153,38 +153,69 @@ class User extends CI_Controller {
 	}
 
 	public function userhome_breakfast(){
-		$data_article['article'] = $this -> articleModel -> get_article_breakfast();
+		$page =0;
+		if(array_key_exists ("page", $_GET)){
+			$page = intval($_GET["page"]) - 1;
+			if($page < 0){
+				$page = 0;
+			}
+		}
+		$end = 8 * (1+ $page);
+		$start = 8 * $page;
+		$article = $this -> articleModel -> get_breakfast_paging($start, $end);
+		$total = $this->articleModel->count_breakfast();
 		$iduser = $this -> get_current_user_id();
 		$result=$this -> userModel -> select($iduser);
 		$user = $result -> result_array();
 		if(count($user)==1){
-			$data = array('user'=>$user[0],'article'=> $data_article['article']);
+			$data = array('user'=>$user[0],'article'=> $article, 'total'=>$total);
 			$this -> load -> view('user_homepage',$data);
 		}
 		else
 		{
-			$this -> load -> view('homepage');
+			$data = array('article'=> $article, 'total'=>$total);
+			$this -> load -> view('homepage', $data);
 		}
 	}
 
 	public function userhome_appetizer(){
-		$data_article['article'] = $this -> articleModel -> get_article_appetizers();
+		$page =0;
+		if(array_key_exists ("page", $_GET)){
+			$page = intval($_GET["page"]) - 1;
+			if($page < 0){
+				$page = 0;
+			}
+		}
+		$end = 8 * (1+ $page);
+		$start = 8 * $page;
+		$article = $this -> articleModel -> get_appetizers_paging($start, $end);
+		$total = $this->articleModel->count_appetizers();
 		$iduser = $this -> get_current_user_id();
 		$result=$this -> userModel -> select($iduser);
 		$user = $result -> result_array();
 		if(count($user)==1){
-			$data = array('user'=>$user[0],'article'=> $data_article['article']);
+			$data = array('user'=>$user[0],'article'=> $article, 'total'=>$total);
 			$this -> load -> view('user_homepage',$data);
 		}
 		else
 		{
-			$this -> load -> view('homepage');
+			$data = array('article'=> $article, 'total'=>$total);
+			$this -> load -> view('homepage', $data);
 		}
 	}
 
 	public function userhome_main(){
-		$article = $this -> articleModel -> get_article_main();
-		$total = $this->articleModel->count_article();
+		$page =0;
+		if(array_key_exists ("page", $_GET)){
+			$page = intval($_GET["page"]) - 1;
+			if($page < 0){
+				$page = 0;
+			}
+		}
+		$end = 8 * (1+ $page);
+		$start = 8 * $page;
+		$article = $this -> articleModel -> get_main_paging($start, $end);
+		$total = $this->articleModel->count_main();
 		$iduser = $this -> get_current_user_id();
 		$result=$this -> userModel -> select($iduser);
 		$user = $result -> result_array();
@@ -200,47 +231,80 @@ class User extends CI_Controller {
 	}
 
 	public function userhome_dessert(){
-		$data_article['article'] = $this -> articleModel -> get_article_dessert();
+		$page =0;
+		if(array_key_exists ("page", $_GET)){
+			$page = intval($_GET["page"]) - 1;
+			if($page < 0){
+				$page = 0;
+			}
+		}
+		$end = 8 * (1+ $page);
+		$start = 8 * $page;
+		$article = $this -> articleModel -> get_dessert_paging($start, $end);
+		$total = $this->articleModel->count_dessert();
 		$iduser = $this -> get_current_user_id();
 		$result=$this -> userModel -> select($iduser);
 		$user = $result -> result_array();
 		if(count($user)==1){
-			$data = array('user'=>$user[0],'article'=> $data_article['article']);
+			$data = array('user'=>$user[0],'article'=> $article, 'total'=>$total);
 			$this -> load -> view('user_homepage',$data);
 		}
 		else
 		{
-			$this -> load -> view('homepage');
+			$data = array('article'=> $article, 'total'=>$total);
+			$this -> load -> view('homepage', $data);
 		}
 	}
 
 	public function userhome_drink(){
-		$data_article['article'] = $this -> articleModel -> get_article_drink();
+		$page =0;
+		if(array_key_exists ("page", $_GET)){
+			$page = intval($_GET["page"]) - 1;
+			if($page < 0){
+				$page = 0;
+			}
+		}
+		$end = 8 * (1+ $page);
+		$start = 8 * $page;
+		$article = $this -> articleModel -> get_drink_paging($start, $end);
+		$total = $this->articleModel->count_drink();
 		$iduser = $this -> get_current_user_id();
 		$result=$this -> userModel -> select($iduser);
 		$user = $result -> result_array();
 		if(count($user)==1){
-			$data = array('user'=>$user[0],'article'=>$data_article['article'] );
+			$data = array('user'=>$user[0],'article'=> $article, 'total'=>$total);
 			$this -> load -> view('user_homepage',$data);
 		}
 		else
 		{
-			$this -> load -> view('homepage');
+			$data = array('article'=> $article, 'total'=>$total);
+			$this -> load -> view('homepage', $data);
 		}
 	}
 
 	public function userhome_cake(){
-		$data_article['article'] = $this -> articleModel -> get_article_cake();
+		$page =0;
+		if(array_key_exists ("page", $_GET)){
+			$page = intval($_GET["page"]) - 1;
+			if($page < 0){
+				$page = 0;
+			}
+		}
+		$end = 8 * (1+ $page);
+		$start = 8 * $page;
+		$article = $this -> articleModel -> get_cake_paging($start, $end);
+		$total = $this->articleModel->count_cake();
 		$iduser = $this -> get_current_user_id();
 		$result=$this -> userModel -> select($iduser);
 		$user = $result -> result_array();
 		if(count($user)==1){
-			$data = array('user'=>$user[0],'article'=> $data_article['article'] );
+			$data = array('user'=>$user[0],'article'=> $article, 'total'=>$total);
 			$this -> load -> view('user_homepage',$data);
 		}
 		else
 		{
-			$this -> load -> view('homepage');
+			$data = array('article'=> $article, 'total'=>$total);
+			$this -> load -> view('homepage', $data);
 		}
 	}
 

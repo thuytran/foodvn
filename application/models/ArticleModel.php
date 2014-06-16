@@ -82,17 +82,54 @@ class ArticleModel extends CI_Model{
 		$select_article_breakfast = $this->db->query("select * from article where id_category=1 ORDER BY id_article DESC");
 		return $select_article_breakfast->result_array();
 	}
+	
+	public function get_breakfast_paging($start,$end)
+	{
+		$select_article = $this->db->query("select * from article where id_category=1 ORDER BY id_article DESC LIMIT ".$start.",".$end);
+		return $select_article->result_array();
+	}
+	
+	public function count_breakfast()
+	{
+		$select_article = $this->db->query("select 1 from article where id_category=1 ");
+		return $select_article->num_rows();
+	}
+	
 
 	public function get_article_appetizers()
 	{
 		$select_article_appetizers = $this->db->query("select * from article where id_category=2 ORDER BY id_article DESC");
 		return $select_article_appetizers->result_array();
 	}
-
+	
+		public function get_appetizers_paging($start,$end)
+	{
+		$select_article = $this->db->query("select * from article where id_category=2 ORDER BY id_article DESC LIMIT ".$start.",".$end);
+		return $select_article->result_array();
+	}
+	
+	public function count_appetizers()
+	{
+		$select_article = $this->db->query("select 1 from article where id_category=2");
+		return $select_article->num_rows();
+	}
+	
 	public function get_article_main()
 	{
 		$select_article_main = $this->db->query("select * from article where id_category=3 ORDER BY id_article DESC");
 		return $select_article_main->result_array();
+	}
+	
+	public function get_main_paging($start,$end)
+	{
+		$select_article = $this->db->query("select * from article where id_category=3 ORDER BY id_article DESC LIMIT ".$start.",".$end);
+		return $select_article->result_array();
+	}
+	
+	public function count_main()
+	{
+		$select_article = $this->db->query("select 1 from article where id_category=3");
+		return $select_article->num_rows();
 	}
 
 	public function get_article_dessert()
@@ -100,11 +137,33 @@ class ArticleModel extends CI_Model{
 		$select_article_main = $this->db->query("select * from article where id_category=4 ORDER BY id_article DESC");
 		return $select_article_main->result_array();
 	}
+		public function get_dessert_paging($start,$end)
+	{
+		$select_article = $this->db->query("select * from article where id_category=4 ORDER BY id_article DESC LIMIT ".$start.",".$end);
+		return $select_article->result_array();
+	}
+	
+	public function count_dessert()
+	{
+		$select_article = $this->db->query("select 1 from article where id_category=4");
+		return $select_article->num_rows();
+	}
 
 	public function get_article_drink()
 	{
 		$select_article_main = $this->db->query("select * from article where id_category=5 ORDER BY id_article DESC");
 		return $select_article_main->result_array();
+	}
+	public function get_drink_paging($start,$end)
+	{
+		$select_article = $this->db->query("select * from article where id_category=5 ORDER BY id_article DESC LIMIT ".$start.",".$end);
+		return $select_article->result_array();
+	}
+	
+	public function count_drink()
+	{
+		$select_article = $this->db->query("select 1 from article where id_category=5");
+		return $select_article->num_rows();
 	}
 
 	public function get_article_cake()
@@ -112,7 +171,17 @@ class ArticleModel extends CI_Model{
 		$select_article_main = $this->db->query("select * from article where id_category=6 ORDER BY id_article DESC");
 		return $select_article_main->result_array();
 	}
-
+	public function get_cake_paging($start,$end)
+	{
+		$select_article = $this->db->query("select * from article where id_category=6 ORDER BY id_article DESC LIMIT ".$start.",".$end);
+		return $select_article->result_array();
+	}
+	
+	public function count_cake()
+	{
+		$select_article = $this->db->query("select 1 from article where id_category=6");
+		return $select_article->num_rows();
+	}
 
 
 	public function get_one_article($id_article)
