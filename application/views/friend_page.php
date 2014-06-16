@@ -35,6 +35,11 @@
 					<td>Email: </td>
 					<td><a  target="_blank" href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=<?php echo $user["email"]?>&body=THIS EMAIL SEND BY YOUR FRIEND IN FOOD.VN"><?php echo $user["email"]; ?></a></td>
 				</tr>
+				<tr>
+					<td>						
+						<a href="http://localhost/foodvn/index.php/user/un_follow_friend/?iduser=<?php echo $user["iduser"]; ?>"> <img src="http://localhost/foodvn/public/image/un_friend.png" id="ImageButton1"/> </a>			
+					</td>
+				</tr>
 			</table>	
 		</div>
 		

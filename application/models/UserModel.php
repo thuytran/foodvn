@@ -139,7 +139,12 @@ class UserModel extends CI_Model{
 			$this->db->delete('user', array('iduser' => $iduser));
 			$this->db->delete('article', array('iduser' => $iduser));
 			$this->db->delete('relative', array('iduser' => $iduser));
+			$this->db->delete('relative', array('iduser_follow' => $iduser));
 			return TRUE;
 		}
-
+		
+		public function un_follow_friend($iduser){
+			$this->db->delete('relative',array('iduser_follow' => $iduser ));
+			return TRUE;
+		}
 }

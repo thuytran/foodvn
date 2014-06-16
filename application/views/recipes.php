@@ -9,7 +9,7 @@
 			<div>
 				<div>
 					<div id="logo">
-						<img src="http://localhost/foodvn/public/image/logo.png"/>
+						<a href="http://localhost/foodvn/index.php/user/session"><img src="http://localhost/foodvn/public/image/logo.png"/></a>
 					</div>
 					<div>
 					</div>

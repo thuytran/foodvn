@@ -33,7 +33,18 @@ class User extends CI_Controller {
 			return null;
 		}
 	}
-
+	
+	function session()
+	{
+		$data = $this -> session -> userdata('session_user');
+		if($data = !null){
+			redirect('/user/homepage/','refresh');	
+		}
+		else
+			{
+				$this->load->view('homepage');
+			}
+	}
 
 	function get_current_username(){
 		$data = $this -> session -> userdata('session_user');
@@ -466,7 +477,15 @@ class User extends CI_Controller {
 
 		}
 		return;
-
+	}
+	
+	public function un_follow_friend()
+	{
+		$iduser = $_GET['iduser'];
+		$u = $this -> userModel -> un_follow_friend($iduser);
+		$user = $this -> userModel -> select($iduser) -> result_array();
+		$data["user"] = count($user) > 0 ? $user[0] : null;
+		$this->load->view('profile_user',$data);
 	}
 
 
